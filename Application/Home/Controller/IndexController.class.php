@@ -20,7 +20,7 @@ class IndexController extends Controller{
         $this->display();
     }
 
-    public function cztest1()
+    public function test1()
     {
         $this->display();
     }
