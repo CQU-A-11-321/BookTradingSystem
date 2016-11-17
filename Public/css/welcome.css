@@ -12,6 +12,12 @@ body
     /*align="center" style="margin-top:300px;"*/
 }
 
+#waring
+{
+    color:red;
+    margin-left: 7%;
+}
+
 .input_welcome
 {
     border: 1px solid #ccc;

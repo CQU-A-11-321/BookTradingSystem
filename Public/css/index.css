@@ -5,14 +5,17 @@ body{
 #header
 {
     background-color: black;
+    height:200px;
     color:white;
     text-align:center;
     padding:1px;
     font-family:"Buxton Sketch";
-    font-size:36px;
+    font-size:36px
 }
 
-.cz
+
+
+#cz
 {
     margin-left: 50%;
 }
@@ -30,7 +33,7 @@ body{
 {
     background-color:grey;
     height:100%;
-    width:70%;
+    width:100%;
     float:center;
 }
 

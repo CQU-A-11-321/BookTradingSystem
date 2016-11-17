@@ -1,0 +1,19 @@
+body
+{
+    margin:0 auto;
+    padding:0
+}
+
+.info1
+{
+    width:100%;
+    height: 100px;
+    background-color: cornflowerblue;
+}
+
+.info1-1
+{
+    width:60%;
+    height:80px;
+}
+

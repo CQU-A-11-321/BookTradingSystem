@@ -11,6 +11,7 @@ return array(
     'DB_CHARSET'=>'utf8',// 数据库字符集
     'APP_ROOT'=>'/BookTradingSystem/Public/css',
     'ACZ_ROOT'=>'/BookTradingSystem/Public/js',
+    'PCZ_ROOT'=>'/BookTradingSystem/Public/picture',
     //'LAYOUT_ON'=>true,
     //'LAYOUT_NAME'=>'Customer/layout'
     //'LAYOUT_NAME'=>'BookTradingSystem/Public/html/header'
