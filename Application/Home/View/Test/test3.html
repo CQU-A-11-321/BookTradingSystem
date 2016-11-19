@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>鼠标移到文字上弹出提示层</title>
+    <style type="text/css">
+        <!--
+        #box{
+            display:none;
+            width: 315px;
+            height: 180px;
+            background:#CCC;
+            border:1px solid #333;
+            padding:12px;
+            text-align:center;
+        }
+        -->
+    </style>
+    <script type="text/javascript" language="javascript" >
+        <!--
+        function display(){
+            document.getElementById("box").style.display="block";
+        }
+        function disappear(){
+            document.getElementById("box").style.display="none";
+        }
+        -->
+    </script>
+</head>
+<body>
+<a href="#" onmouseover="display()" onmouseout="disappear()">
+    鼠标放到这儿！
+</a>
+<div id="box" onmouseover="display()" onmouseout="disappear()">
+    效果不错吧？这里面你可以设置一张图片，也可以是一段文字，
+    而且源代码很简单哦！
+</div>
+</body>
+</html>

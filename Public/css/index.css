@@ -1,0 +1,55 @@
+body{
+    margin:0;
+    padding:0 auto;
+}
+#header
+{
+    background-color: black;
+    height:200px;
+    color:white;
+    text-align:center;
+    padding:1px;
+    font-family:"Buxton Sketch";
+    font-size:36px
+}
+
+
+
+#cz
+{
+    margin-left: 50%;
+}
+/*#nav*/
+/*{*/
+    /*line-height:30px;*/
+    /*background-color:#eeeeee;*/
+    /*height:100%;*/
+    /*width:12%;*/
+    /*float:left;*/
+    /*padding:2 2 2 2;*/
+/*}*/
+
+#mainbody
+{
+    background-color:grey;
+    height:100%;
+    width:100%;
+    float:center;
+}
+
+#blockbook
+{
+    background-color:green;
+    width:15%;
+    height:80px;
+    float:center;
+}
+
+#footer
+{
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:1%;
+}
