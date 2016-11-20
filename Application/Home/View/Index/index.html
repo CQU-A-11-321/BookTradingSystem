@@ -35,21 +35,21 @@
     <div id = "index-body" style="background-image:url({:C('PCZ_ROOT')}/cc1.jpg);background-position:center; background-repeat:repeat-x ;height: 800px;background-size: 100% 100%;">
         <div class="theme-buy" style="height: 500px;width: 100%;">
             <a class="index-btn btn-primary btn-large theme-login" href="javascript:;" style ="margin-top: 10%;">点击登陆</a>
-            <a class="index-btn" href="http://localhost/BookTradingSystem/Home/Index/welcomePage.html" style ="margin-top: 10%;background-color: #1ABC9C">点击注册</a>
+            <a class="index-btn" href="Home/Index/welcomePage.html" style ="margin-top: 10%;background-color: #1ABC9C">点击注册</a>
         </div>
         <div class="theme-popover">
             <div class="theme-poptit">
                 <a href="javascript:;" title="关闭" class="close">×</a>
-                <h3>登录 是一种态度</h3>
+                <h3>登录是一种态度</h3>
             </div>
             <div class="theme-popbod dform">
-                <form class="theme-signin" name="loginform" action="" method="post">
+                <form class="theme-signin" action="home/Index/login" method="post">
                     <ol>
                         <li><h4>你必须先登录！</h4></li>
-                        <li><strong>用户名：</strong><input class="ipt" type="text" name="log" value="lanrenzhijia" size="20" /></li>
-                        <li><strong>密码：</strong><input class="ipt" type="password" name="pwd" value="***" size="20" /></li>
+                        <li><strong>用户名：</strong><input class="ipt" type="text" name="log" value="20144511" size="20" /></li>
+                        <li><strong>密码：</strong><input class="ipt" type="password" name="pwd" value="123" size="20" /></li>
                         <li><h5 id = "index-wrong">*用户名或者密码错误请重新输入</h5></li>
-                        <li><input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " method="post" action="log-update"/></li>
+                        <li><input class="btn btn-primary" type="submit" value=" 登 录 "/></li>
                     </ol>
                 </form>
             </div>

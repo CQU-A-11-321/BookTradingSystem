@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/index.css">
+    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/login.css">
+    <script type="text/javascript" src = "{:C('ACZ_ROOT')}/index.js"></script>
+    <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/55/sjckzedf/jquery-1.8.0.min.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $('.theme-login').click(function(){
+                $('.theme-popover-mask').fadeIn(100);
+                $('.theme-popover').slideDown(200);
+            })
+            $('.theme-poptit .close').click(function(){
+                $('.theme-popover-mask').fadeOut(100);
+                $('.theme-popover').slideUp(200);
+            })
+
+        })
+    </script>
+    <title>321 BK House</title>
+</head>
+<body>
+<!--{$result.name}&#45;&#45;{$result.writer}-->
+<!--{$result.name};-->
+<div id="header">
+    <div>
+        <h1  style="margin-top: 50px;">321 BK House</h1>
+    </div>
+    <div style="float: right;margin-top: 28px;">
+        <h6>welcome <b>{$name}</b></h6>
+    </div>
+</div>
+<div id = "index-body" style="background-image:url({:C('PCZ_ROOT')}/cc1.jpg);background-position:center; background-repeat:repeat-x ;height: 800px;background-size: 100% 100%;">
+</div>
+
+<div id="footer">
+    Copyright 321BKHouse.co 2016
+</div>
+</body>
+</html>
