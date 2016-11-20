@@ -4,7 +4,7 @@ namespace Home\Controller;
 use Think\Controller;
 class InformationController extends Controller
 {
-    public function bookInfoPage($name = 'think')
+    public function bookInfoPage()
     {
         $this->display();
     }
