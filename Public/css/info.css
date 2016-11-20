@@ -1,4 +1,4 @@
-body,h4
+body,h4,h5
 {
     padding:0;
     margin:0 auto;
@@ -7,6 +7,11 @@ body,h4
 .div-div
 {
     height: 30%;
+}
+
+.div-divone
+{
+    height: 20%;
 }
 .ipt
 {
@@ -161,3 +166,19 @@ nav ul{margin:0px; padding: 0px;}
 nav ul li:hover ul li{display: block;}
 nav ul li ul li a:hover{
     background-color: #F5F5FF; color: #68A6D9;}
+
+.info-select
+{
+    font-size:20px;
+    width: 60px;
+    color:green;
+}
+
+#info-form
+{
+    margin-left: 15%;
+    margin-top: 10%;
+    background-color: #00a65a;
+    width:70%;
+    height: 70%;
+}
