@@ -31,7 +31,7 @@ class IndexController extends BaseController{
 
     public function successLogin() {
         $this->assign('name', session('username'));
-        $this->display();
+        $this->redirect("Home/Information/successLogin");
     }
 
     public function register() {
