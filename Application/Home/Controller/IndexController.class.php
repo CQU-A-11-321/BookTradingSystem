@@ -1,14 +1,10 @@
 <?php
 
 namespace Home\Controller;
+use stdClass;
 use Think\Controller;
 class IndexController extends BaseController{
     public function index(){
-        $this->display();
-    }
-
-    public function test1()
-    {
         $this->display();
     }
 
@@ -40,33 +36,33 @@ class IndexController extends BaseController{
 
     public function register() {
         $User = M('user');
-        $nextNum = sizeof($User->select());
-//        echo $nextNum;
-        $nextNum++;
+
         $User->uniqueid = $_POST['user'];
         $User->name = $_POST['username'];
         $User->password = $_POST['password'];
+        $nextNum = sizeof($User->select());
+        $nextNum++;
         $User->userinfoid = $nextNum;
-        if ($User->add()) {
-            $UserInfo = M('userinfo');
-            $data = array(
-                'uniqueid' => $nextNum,
-                'address' => '1111',
-                'tel' => '1111',
-                'email' => '1111',
-                'money' => '100',
-                'zipcode' => '123'
-            );
-            if ($UserInfo->add($data)) {
-                $this->success("注册成功");
-            }
-            else {
 
-            }
+        // judge if account is exit
+        $map['uniqueid'] = array('eq', $_POST['user']);
 
+        if (sizeof($User->where($map)->select()) != 0) {
+            $this->error("账号已存在");
         }
         else {
-            $this->error("账号已存在");
+            $User->add();
+            $UserInfo = M('userinfo');
+            $info = array(
+                'uniqueid' => $nextNum,
+                'address' => '',
+                'tel' => '',
+                'email' => '',
+                'money' => '0',
+                'zipcode' => ''
+            );
+            $UserInfo->add($info);
+            $this->success("注册成功", "index");
         }
     }
 }
