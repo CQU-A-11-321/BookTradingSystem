@@ -25,13 +25,13 @@ class IndexController extends BaseController{
             // fixme: 登录成功跳转窗口增加内容
             $name = $result[0]['name'];
             session('username', $name);
+            session('userid', $result[0]['uniqueid']);
             $this->success("登陆成功", "successLogin");
         }
     }
 
     public function successLogin() {
-        $this->assign('name', session('username'));
-        $this->redirect("Home/Information/successLogin");
+        $this->redirect("Home/Information/indexPage");
     }
 
     public function register() {
