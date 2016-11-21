@@ -12,11 +12,13 @@
         </div>
         <nav>
             <ul>
-                <li> <a href="#">我的信息</a>
+                <li> <a href="">导航栏</a>
                     <ul>
-                        <li> <a href=""> 主页 </a> </li>
-                        <li> <a href="#"> 我的书屋 </a> </li>
-                        <li> <a href="#"> 联系我们 </a> </li>
+                        <li> <a href="indexPage"> 主页 </a> </li>
+                        <li> <a href="myInfoPage"> 我的资料 </a> </li>
+                        <li> <a href="bookshopInfoPage"> 我的书店 </a> </li>
+                        <li> <a href="orderInfoPage"> 我的订单 </a> </li>
+                        <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
                     </ul>
                 </li>
             </ul>
@@ -33,18 +35,18 @@
     <div id="info-divone"></div>
     <div id="info-divtwo">
         <div>
-        <form id = "info-form" name="improve-form" action="home/Index/login" method="post">
+        <form id = "info-form" name="improve-form" action="submitInfo" method="post">
             <ol>
-                <li class="info-li">姓名：<input type="text" name="name" value="程正" class="iptone" readonly="1"></li>
+                <li class="info-li">姓名：<input type="text" name="name" value={$data.name} class="iptone" ></li>
                 <br/>
-                <li class="info-li">电话：<input type="text" name="tel" value="13193169467" class="iptone"></li>
+                <li class="info-li">电话：<input type="text" name="tel" value={$data.tel} class="iptone"></li>
                 <br/>
-                <li class="info-li">邮箱：<input type="email" name="email" value="969176743@qq.com" class="iptone"></li>
+                <li class="info-li">邮箱：<input type="email" name="email" value={$data.email} class="iptone"></li>
                 <br/>
-                <li class="info-li">资金：<input type="text" name="money" value="1111111" class="iptone"></li>
+                <li class="info-li">资金：<input type="text" name="money" value={$data.money} class="iptone" readonly=""1"></li>
                 <br/>
-                <li class="info-li">邮编：<input type="text" name="zipcode" value="405800" class="iptone"></li>
-                <li class="info-li"><br/>地址：<br/><textarea rows="5" cols="70" name="address"></textarea></li>
+                <li class="info-li">邮编：<input type="text" name="zipcode" value={$data.zipcode} class="iptone"></li>
+                <li class="info-li"><br/>地址：<br/><textarea rows="5" cols="70" name="address">{$data.address} </textarea></li>
             </ol>
             <input type="submit" id="iptt" class = "info-welcome" value="提交" style="margin-left:40%;">
         </form>

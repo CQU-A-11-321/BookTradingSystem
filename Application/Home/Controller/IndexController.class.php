@@ -19,13 +19,17 @@ class IndexController extends BaseController{
         $result = $User->where($condition)->select();
         if (sizeof($result) == 0) {
             // todo: 失败跳转创窗口
-            echo 'fail';
+            $this->error("登录失败");
         }
         else {
             // fixme: 登录成功跳转窗口增加内容
-            $name = $result[0]['name'];
-            session('username', $name);
-            session('userid', $result[0]['uniqueid']);
+//            $name = $result[0]['name'];
+//            session('username', $name);
+//            session('userid', $result[0]['uniqueid']);
+            session('user', $result[0]);
+            $UserInfo = M('userinfo');
+            $info = $UserInfo->where("uniqueid=%s", $result[0]['userinfoid'])->select();
+            session('userinfo', $info[0]);
             $this->success("登陆成功", "successLogin");
         }
     }

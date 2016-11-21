@@ -44,7 +44,7 @@
             <li class="info-li">账户余额：<input type="text" name="money" value={$data.money} class="ipt" readonly="1"></li>
             <br/>
             <li class="info-li">邮编：<input type="text" name="zipcode" value={$data.zipcode} class="ipt" readonly="1"></li>
-            <li class="info-li">邮编：<input type="text" name="address" value={$data.address} class="ipt" readonly="1"></li>
+            <li class="info-li"><br/>地址：<br/><textarea rows="5" cols="70" name="address" readonly="1">{$data.address} </textarea></li>
         </ol>
         <input type="submit" id="iptt" class = "info-welcome" value="点击修改资料" style="margin-left:40%;">
     </form>
