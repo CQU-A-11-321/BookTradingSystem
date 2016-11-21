@@ -216,3 +216,86 @@ nav ul li ul li a:hover{
     margin-left: 80%;
     margin-top: 10%;
 }
+
+#bookone
+{
+    width:100%;
+    height: 250px;
+    /*background-color: #0072b5;*/
+    /*background: url("{:C('PCZ_ROOT')}/cc4.jpg");*/
+}
+
+#bookone:hover
+{
+    opacity:0.50;
+}
+.sizediv
+{
+    font-size: 50px;
+    color: #1f1f1f;
+    float: left;
+    margin-top: 9%;
+    margin-left: 45%;
+    /*margin-top: 45%;*/
+}
+
+#booktwo
+{
+    width:100%;
+    height: 250px;
+    background-color: #c87f0a;
+}
+
+#booktwo-one
+{
+    width:100%;
+    height: 30px;
+    background-color:#00a65a;
+}
+
+.bookio {
+    height: 50px;
+    width: 100%;
+    background-color:#72d0eb;
+}
+
+#us
+{
+    width: 100%;
+    height: 50px;
+    margin-top: 6%;
+    color: white;
+    font-size: 40px;
+    background-color: #c6c6c6;
+}
+
+#usone
+{
+    width: 80%;
+    height: 58%;
+    margin-left: 10%;
+    margin-top: 4%;
+    background-color: #72d0eb;
+}
+
+.usdiv
+{
+    width: 100%;
+    height: 80px;
+    font-size: 25px;
+    background-color: #FFE924;
+    color:#008800;
+}
+
+.divone
+{
+    float:left;
+    margin-top: 4%;
+    margin-left: 10%;
+}
+
+.usdiv:hover
+{
+    background-color:#c87f0a;
+    color:#1ABC9C;
+}
