@@ -10,7 +10,11 @@ class InformationController extends BaseController
         $this->display("successLogin");
     }
 
-    public function bookInfoPage(){
+    public function bookInfoPage($bookId = 1){
+        $Book = M('book');
+        $result = $Book->find($bookId);
+//        dump($result);
+        $this->assign('book', $result);
         $this->display();
     }
 
@@ -33,7 +37,6 @@ class InformationController extends BaseController
 
     public function bookshopInfoPage(){
         $this->display();
-
     }
 
     public function orderInfoPage(){

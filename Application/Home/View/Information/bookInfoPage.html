@@ -15,11 +15,11 @@
             <ul>
                 <li> <a href="#">导航栏</a>
                     <ul>
-                        <li> <a href="indexPage"> 主页 </a> </li>
-                        <li> <a href="myInfoPage"> 我的资料 </a> </li>
-                        <li> <a href="bookshopInfoPage"> 我的书屋 </a> </li>
-                        <li> <a href="orderInfoPage"> 我的订单 </a> </li>
-                        <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
+                        <li> <a href="/BookTradingSystem/Home/Information/indexPage"> 主页 </a> </li>
+                        <li> <a href="/BookTradingSystem/Home/Information/myInfoPage"> 我的资料 </a> </li>
+                        <li> <a href="/BookTradingSystem/Home/Information/bookshopInfoPage"> 我的书屋 </a> </li>
+                        <li> <a href="/BookTradingSystem/Home/Information/orderInfoPage"> 我的订单 </a> </li>
+                        <li> <a href="/BookTradingSystem/Home/Information/contactusInfoPage"> 联系我们 </a> </li>
                     </ul>
                 </li>
             </ul>
@@ -43,29 +43,29 @@
             <table id="divtwo-table">
                 <tr>
                     <td>
-                        <b>书名:</b><input type="text" name="cz" value="钢铁是怎样炼成的" class="ipt" readonly="1"/><br/>
+                        <b>书名:</b><input type="text" name="cz" value={$book.name} class="ipt" readonly="1"/><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>作者:</b><input type="text" name="cz" value="199dsffsd6" class="ipt" readonly="1"/><br/>
+                        <b>作者:</b><input type="text" name="cz" value={$book.author} class="ipt" readonly="1"/><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>出版社:</b><input type="text" name="cz" value="1996" class="ipt" readonly="1   "/><br/>
+                        <b>出版社:</b><input type="text" name="cz" value={$book.concern} class="ipt" readonly="1   "/><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>出版日期:</b><input type="text" name="cz" value="重庆大学出版社" class="ipt" readonly="1   "/><br/>
+                        <b>出版日期:</b><input type="text" name="cz" value={$book.date} class="ipt" readonly="1   "/><br/>
                     </td>
                 </tr>
             </table>
         </div>
         <div>
-            <div style="margin-left: 20%";>价格：<input type="text" id="butto" name="cz" value="cz1996" class="ipt" readonly="1   "/>
-                书店：<div class="shudian">
+            <div style="margin-left: 20%";>价格：<input type="text" id="butto" name="cz" value={$book.price} class="ipt" readonly="1   "/>
+                商家：<div class="shudian">
                     <a href="#" style="margin-top: 2%;float: left;margin-left: 10%">新华书店</a>
                 </div>
             </div>
@@ -74,7 +74,7 @@
         <div>
             <b style="margin-left:5%;">详细信息：</b><br/>
             <br/>
-            <textarea rows="7" cols="100%" style="margin-left: 10%" readonly="1"></textarea>
+            <textarea rows="7" cols="100%" style="margin-left: 10%" readonly="1" >{$book.mark}</textarea>
         </div>
         <br/>
         <input type="submit" id="ipt1" class = "button_welcome1" value="加入购物车" style="margin-left:30%;float: left;background-color: #2F5BB7;cursor:pointer">
