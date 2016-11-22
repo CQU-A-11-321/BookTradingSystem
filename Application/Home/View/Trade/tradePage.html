@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购买</title>
+    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/trade.css">
+</head>
+<body>
+<div id="header">
+    <div>
+        <div  style="margin-top: 30px;font-size: 80px;" align="center">321 BK House</div>
+    </div>
+    <nav>
+        <ul>
+            <li> <a href="#">导航栏</a>
+                <ul>
+                    <li> <a href="indexPage"> 主页 </a> </li>
+                    <li> <a href="myInfoPage"> 我的资料 </a> </li>
+                    <li> <a href="bookshopInfoPage"> 我的书屋 </a> </li>
+                    <li> <a href="orderInfoPage"> 我的订单 </a> </li>
+                    <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div id="info-divone"></div>
+<div id="info-divtwo">
+    <div>
+        <form id = "info-form" name="improve-form" action="submitInfo" method="post">
+            <ol>
+                <li class="info-li">姓名：<input type="text" name="name" value="程正" class="iptone" ></li>
+                <br/>
+                <li class="info-li">电话：<input type="text" name="tel" value="123164654645" class="iptone"></li>
+                <br/>
+                <li class="info-li">邮箱：<input type="email" name="email" value="12313131313@qq.com" class="iptone"></li>
+                <br/>
+                <li class="info-li">邮编：<input type="text" name="zipcode" value="400050" class="iptone"></li>
+                <li class="info-li"><br/>地址：<br/><textarea rows="3" cols="70" name="address" style="text-align: center;font-weight:bold;">重庆大学A区11舍 </textarea></li>
+                <li class="info-li"><br/>买家留言：<br/><textarea rows="3" cols="70" name="address" style="text-align: center;font-weight:bold;">我要好的包装 </textarea></li>
+                <br/>
+                <li class="info-li" style="margin-left: 17%;font-size: 30px;">总价格：<input type="text" name="name" value="100.5" class="iptone" readonly="1" style="font-size: 30px;border:0px;"></li>
+            </ol>
+            <input type="submit" id="iptt" class = "info-welcome" value="确认购买" style="margin-left:40%;background-color: #2F5BB7;cursor:pointer">
+        </form>
+    </div>
+</div>
+<div id="info-divthree"></div>
+<div id="footer">
+    <div>
+        <br/>
+    </div>
+    Copyright 321BKHouse.co 2016
+</div>
+</body>
+</html>
