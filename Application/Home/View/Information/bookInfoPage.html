@@ -34,7 +34,7 @@
         <!--<a href="https://www.baidu.com"><img src="{:C('PCZ_ROOT')}/c1.png" class="head-img1" style="float:right;margin-right: 3px;"/></a>-->
     </div>
     <div id="info-divone"></div>
-    <div id="info-divtwo">
+    <form id="info-divtwo" method="post" action="">
         <div id="info-divtwo-one">
             <img src="{:C('PCZ_ROOT')}/cc1.jpg" id="divtwo-one-img">
         </div>
@@ -43,28 +43,28 @@
             <table id="divtwo-table">
                 <tr>
                     <td>
-                        <b>书名:</b><input type="text" name="cz" value="钢铁是怎样炼成的" class="ipt" readonly="1"/><br/>
+                        <b>书名:</b><input type="text" name="cz" class="ipt" readonly="1" value="钢铁是怎样炼成的"><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>作者:</b><input type="text" name="cz" value="199dsffsd6" class="ipt" readonly="1"/><br/>
+                        <b>作者:</b><input type="text" name="cz" class="ipt" readonly="1" value="199dsffsd6"><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>出版社:</b><input type="text" name="cz" value="1996" class="ipt" readonly="1   "/><br/>
+                        <b>出版社:</b><input type="text" name="cz" class="ipt" readonly="1" value="1996"><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>出版日期:</b><input type="text" name="cz" value="重庆大学出版社" class="ipt" readonly="1   "/><br/>
+                        <b>出版日期:</b><input type="text" name="cz" class="ipt" readonly="1" value="重庆大学出版社"><br/>
                     </td>
                 </tr>
             </table>
         </div>
         <div>
-            <div style="margin-left: 20%";>价格：<input type="text" id="butto" name="cz" value="cz1996" class="ipt" readonly="1   "/>
+            <div style="margin-left: 20%;font-weight:bold;font-size: 25px;">价格：<input type="text" id="butto" name="cz"  class="iptcc" readonly="1" value="cz1996">
                 书店：<div class="shudian">
                     <a href="#" style="margin-top: 2%;float: left;margin-left: 10%">新华书店</a>
                 </div>
@@ -79,7 +79,7 @@
         <br/>
         <input type="submit" id="ipt1" class = "button_welcome1" value="加入购物车" style="margin-left:30%;float: left;background-color: #2F5BB7;cursor:pointer">
         <input type="submit" id="ipt2" class = "button_welcome1" value="点击购买" style="margin-left:2%;float: left;background-color: #95C8F1; cursor:pointer">
-    </div>
+    </form>
     <div id="info-divthree"></div>
     <div id="footer">
         <div>

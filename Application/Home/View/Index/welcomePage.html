@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src = "{:C('ACZ_ROOT')}/welcome.js"></script>
+    <script type="text/javascript" src = "{:C('ACZ_ROOT')}/info.js"></script>
     <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/index.css">
     <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/welcome.css">
     <title>cz1996</title>
@@ -18,7 +19,7 @@
         </div>
     </div>
     <!--<span style="font-size:50px;text-align:center;" class="span_welcome"><b style="text-align:center;">欢迎进入重庆大学图书交易系统</b></span>-->
-    <form class="form_welcome" align="center" method="post" action="register">
+    <form class="form_welcome" id="log" align="center" method="post">
     <b>用户：</b>
     <input type="text" name="user" class="input_welcome" placeholder="请输入用户名" style="margin-left: 50px;"><br/>
     <b>姓名：</b>
@@ -28,7 +29,7 @@
     <b>请确认密码：</b>
     <input type="password" name="password" id = "pw2" class="output_welcome" placeholder="请确认密码" onblur="check()"><br/>
         <span id="waring"></span><br/>
-        <input type="submit" id="ipt" class = "button_welcome" value="注册" style="margin-left:0px;">
+        <input type="submit" id="ipt" class = "button_welcome" value="注册" style="margin-left:0px;" onclick="displ()">
     </form>
     <br/>
     <!--<button type="button" align="center" class="button_welcome" onclick="click_welcome()"><b>注册</b></button>-->

@@ -32,8 +32,19 @@ class InformationController extends BaseController
     }
 
     public function bookshopInfoPage(){
+        $User = M('User');
+        $list = array(
+            0 => array(
+                'id' => 'etet',
+                'name' => '12123'
+            ),
+            1 => array(
+                'id' => 'etet1',
+                'name' => 'cz1996'
+            )
+        );
+        $this->assign('list',$list);
         $this->display();
-
     }
 
     public function orderInfoPage(){

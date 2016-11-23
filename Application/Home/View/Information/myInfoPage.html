@@ -5,7 +5,7 @@
     <title>我的资料</title>
     <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/info.css">
 </head>
-<body>
+<body onload="panduan()">
 <div id="header">
     <div>
         <div  style="margin-top: 30px;font-size: 80px;" align="center">321 BK House</div>
@@ -35,15 +35,15 @@
 <div id="info-divtwo">
     <form id = "info-form" name="improve-form" action="improveInfoPage" method="post">
         <ol>
-            <li class="info-li">姓名：<input type="text" name="name" value={$data.name} class="ipt" readonly="1"></li>
+            <li class="info-li">姓名：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
             <br/>
-            <li class="info-li">电话：<input type="text" name="tel" value={$data.tel} class="ipt" readonly="1"></li>
+            <li class="info-li">电话：<input type="text" name="tel" class="ipt" readonly="1" value={$data.tel}></li>
             <br/>
-            <li class="info-li">邮箱：<input type="email" name="email" value={$data.email} class="ipt" readonly="1"></li>
+            <li class="info-li">邮箱：<input type="email" name="email" class="ipt" readonly="1" value={$data.email}></li>
             <br/>
-            <li class="info-li">账户余额：<input type="text" name="money" value={$data.money} class="ipt" readonly="1"></li>
+            <li class="info-li">邮编：<input type="text" name="zipcode" class="ipt" readonly="1" value={$data.zipcode}></li>
             <br/>
-            <li class="info-li">邮编：<input type="text" name="zipcode" value={$data.zipcode} class="ipt" readonly="1"></li>
+            <li class="info-li">账户余额：<input type="text" name="money" class="ipt" readonly="1" value={$data.money}></li>
             <li class="info-li"><br/>地址：<br/><textarea rows="5" cols="70" name="address" readonly="1" style="text-align: center;font-weight:bold;">{$data.address} </textarea></li>
         </ol>
         <input type="submit" id="iptt" class = "info-welcome" value="点击修改资料" style="margin-left:40%;">
