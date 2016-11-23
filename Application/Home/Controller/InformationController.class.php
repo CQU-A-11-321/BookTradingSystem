@@ -5,24 +5,23 @@ use Think\Controller;
 class InformationController extends BaseController
 {
     public function indexPage(){
-//        dump(session('user'));
-//        dump(session('userinfo'));
         $this->display("successLogin");
     }
 
-    public function bookInfoPage($bookId = 1){
+    public function bookInfoPage($shopitemId){
+        $Shopitem = M('shopitem');
+        $shopitem = $Shopitem->find($shopitemId);
+        $this->assign('shopname', $shopitem['shopname']);
         $Book = M('book');
-        $result = $Book->find($bookId);
-//        dump($result);
-        $this->assign('book', $result);
+        $book = $Book->find($shopitem['bookid']);
+        $this->assign('book', $book);
+
+        $link = "/BookTradingSystem/Home/Information/bookshopInfoPage/shopId/" . $shopitem['shopid'];
+        $this->assign('link', $link);
         $this->display();
     }
 
     public function myInfoPage(){
-//        $User = M('user');
-//        $UserInfo = M('userinfo');
-//        $result = $User->where("uniqueid=%s", session('userid'))->select();
-//        $info = $UserInfo->where("uniqueid=%s", $result[0]['userinfoid'])->select();
         $data = array(
             'name' => session('user')['name'],
             'tel' => session('userinfo')['tel'],
@@ -35,19 +34,21 @@ class InformationController extends BaseController
         $this->display();
     }
 
-    public function bookshopInfoPage(){
-        $User = M('User');
-        $list = array(
-            0 => array(
-                'id' => 'etet',
-                'name' => '12123'
-            ),
-            1 => array(
-                'id' => 'etet1',
-                'name' => 'cz1996'
-            )
-        );
-        $this->assign('list',$list);
+    public function bookshopInfoPage($shopId){
+        $Shop = M('shop');
+        $info = $Shop->find($shopId);
+        $Shopitem = M('shopitem');
+        $bookidList = $Shopitem->where("shopid=%s", $shopId)->getField('bookid', true);
+        $Book = M('book');
+        $index = 0;
+        foreach ($bookidList as $id){
+            $result = $Book->find($id);
+            $list[$index]['name'] = $result['name'];
+            $list[$index]['author'] = $result['author'];
+            $index++;
+        }
+//        dump($list);
+        $this->assign('list', $list);
         $this->display();
     }
 
@@ -62,10 +63,6 @@ class InformationController extends BaseController
     }
 
     public function improveInfoPage(){
-//        $User = M('user');
-//        $UserInfo = M('userinfo');
-//        $result1 = $User->where("uniqueid=%s", session('userid'))->select();
-//        $result2 = $UserInfo->where("uniqueid=%s", $result1[0]['userinfoid'])->select();
         $data = array(
             'name' => session('user')['name'],
             'tel' => session('userinfo')['tel'],

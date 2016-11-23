@@ -4,7 +4,7 @@ namespace Home\Controller;
 use Think\Controller;
 class TradeController extends BaseController
 {
-    public function trade()
+    public function tradePage()
     {
         $this->display();
     }
