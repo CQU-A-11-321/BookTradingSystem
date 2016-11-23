@@ -15,11 +15,11 @@
             <ul>
                 <li> <a href="#">导航栏</a>
                     <ul>
-                        <li> <a href="/BookTradingSystem/Home/Information/indexPage"> 主页 </a> </li>
-                        <li> <a href="/BookTradingSystem/Home/Information/myInfoPage"> 我的资料 </a> </li>
-                        <li> <a href="/BookTradingSystem/Home/Information/bookshopInfoPage"> 我的书屋 </a> </li>
-                        <li> <a href="/BookTradingSystem/Home/Information/orderInfoPage"> 我的订单 </a> </li>
-                        <li> <a href="/BookTradingSystem/Home/Information/contactusInfoPage"> 联系我们 </a> </li>
+                        <li> <a href="indexPage"> 主页 </a> </li>
+                        <li> <a href="myInfoPage"> 我的资料 </a> </li>
+                        <li> <a href="bookshopInfoPage"> 我的书屋 </a> </li>
+                        <li> <a href="orderInfoPage"> 我的订单 </a> </li>
+                        <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
                     </ul>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
         <!--<a href="https://www.baidu.com"><img src="{:C('PCZ_ROOT')}/c1.png" class="head-img1" style="float:right;margin-right: 3px;"/></a>-->
     </div>
     <div id="info-divone"></div>
-    <div id="info-divtwo">
+    <form id="info-divtwo" method="post" action="">
         <div id="info-divtwo-one">
             <img src="{:C('PCZ_ROOT')}/cc1.jpg" id="divtwo-one-img">
         </div>
@@ -43,29 +43,29 @@
             <table id="divtwo-table">
                 <tr>
                     <td>
-                        <b>书名:</b><input type="text" name="cz" value={$book.name} class="ipt" readonly="1"/><br/>
+                        <b>书名:</b><input type="text" name="cz" class="ipt" readonly="1" value="钢铁是怎样炼成的"><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>作者:</b><input type="text" name="cz" value={$book.author} class="ipt" readonly="1"/><br/>
+                        <b>作者:</b><input type="text" name="cz" class="ipt" readonly="1" value="199dsffsd6"><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>出版社:</b><input type="text" name="cz" value={$book.concern} class="ipt" readonly="1   "/><br/>
+                        <b>出版社:</b><input type="text" name="cz" class="ipt" readonly="1" value="1996"><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>出版日期:</b><input type="text" name="cz" value={$book.date} class="ipt" readonly="1   "/><br/>
+                        <b>出版日期:</b><input type="text" name="cz" class="ipt" readonly="1" value="重庆大学出版社"><br/>
                     </td>
                 </tr>
             </table>
         </div>
         <div>
-            <div style="margin-left: 20%";>价格：<input type="text" id="butto" name="cz" value={$book.price} class="ipt" readonly="1   "/>
-                商家：<div class="shudian">
+            <div style="margin-left: 20%;font-weight:bold;font-size: 25px;">价格：<input type="text" id="butto" name="cz"  class="iptcc" readonly="1" value="cz1996">
+                书店：<div class="shudian">
                     <a href="#" style="margin-top: 2%;float: left;margin-left: 10%">新华书店</a>
                 </div>
             </div>
@@ -74,12 +74,12 @@
         <div>
             <b style="margin-left:5%;">详细信息：</b><br/>
             <br/>
-            <textarea rows="7" cols="100%" style="margin-left: 10%" readonly="1" >{$book.mark}</textarea>
+            <textarea rows="7" cols="100%" style="margin-left: 10%" readonly="1"></textarea>
         </div>
         <br/>
         <input type="submit" id="ipt1" class = "button_welcome1" value="加入购物车" style="margin-left:30%;float: left;background-color: #2F5BB7;cursor:pointer">
         <input type="submit" id="ipt2" class = "button_welcome1" value="点击购买" style="margin-left:2%;float: left;background-color: #95C8F1; cursor:pointer">
-    </div>
+    </form>
     <div id="info-divthree"></div>
     <div id="footer">
         <div>

@@ -35,3 +35,20 @@ function but() {
     aa.innerHTML=dis;
     dis.appendChild(aa);
 }
+
+function displ() {
+    var dis1 = document.getElementById("pw1").value;
+    var dis2 = document.getElementById("pw2").value;
+    if(dis1 == dis2)
+    {
+        var dis = document.getElementById("log");
+        dis.action="register";
+    }
+}
+
+function panduan() {
+    var dis = document.getElementById("wo1").value;
+    if(dis == null){
+        dis.value="无";
+    }
+}

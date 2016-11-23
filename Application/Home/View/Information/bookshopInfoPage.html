@@ -44,20 +44,15 @@
             <b style="font-size: 25px;">寄售的书籍</b>
         </div>
         <div id="booktwo-two" name="bookdisplay">
-            <div class="bookio" name="tableform" id="tableone">
-                <!--<table border="1">-->
-                    <!--<tr>-->
-                        <!--<td>书名</td>-->
-                        <!--<td>钢铁是怎样炼成的</td>-->
-                        <!--<td>作者</td>-->
-                        <!--<td>啥子斯基</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td>Second</td>-->
-                        <!--<td>Row</td>-->
-                    <!--</tr>-->
-                <!--</table>-->
-            </div>
+                <volist name="list" id="vo">
+                    <a href="#">
+                        <div class="usdiv" name="tableform" id="tableone" onclick="click()">
+                            <div class="divone">{$vo.id}</div>
+                            <div class="divone" style=" margin-left: 7%;">{$vo.name}</div>
+                            <div class="divone">1213</div>
+                        </div>
+                    </a>
+                </volist>
         </div>
     </div>
 </div>
