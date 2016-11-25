@@ -10,6 +10,12 @@ namespace Home\Controller;
 
 use Think\Controller;
 
-class BaseController extends Controller {
+/**
+ * Class BaseController
+ * @package Home\Controller
+ * 用于代码提示以及一些共有的方法
+ */
 
+class BaseController extends Controller {
+    // todo: 添加关联修改信息函数
 }

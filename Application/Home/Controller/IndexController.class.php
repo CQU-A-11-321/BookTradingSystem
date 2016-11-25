@@ -1,13 +1,28 @@
 <?php
-
+/**
+ * Created by CQU-CST-WuErli.
+ * Date: 2016/11/19
+ * Time: 13:07
+ */
 namespace Home\Controller;
 use stdClass;
 use Think\Controller;
+
+/**
+ * Class IndexController
+ * @package Home\Controller
+ * @URL BookTradingSystem/Index/
+ * 登录注册模块
+ */
+
 class IndexController extends BaseController{
     public function index(){
         $this->display();
     }
 
+    /**
+     * 登录模块
+     */
     public function login() {
         $name = $_POST['log'];
         $password = $_POST['pwd'];
@@ -34,10 +49,16 @@ class IndexController extends BaseController{
         }
     }
 
+    /**
+     * 登陆成功后跳转至主页
+     */
     public function successLogin() {
         $this->redirect("Home/Information/indexPage");
     }
 
+    /**
+     * 注册模块
+     */
     public function register() {
         $User = M('user');
 

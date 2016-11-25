@@ -1,13 +1,31 @@
 <?php
-
+/**
+ * Created by CQU-CST-WuErli.
+ * Date: 2016/11/19
+ * Time: 13:07
+ */
 namespace Home\Controller;
 use Think\Controller;
+
+/**
+ * Class InformationController
+ * @package Home\Controller
+ * @URL /BookTradingSystem/Infomation
+ * 信息查询显示模块
+ */
 class InformationController extends BaseController
 {
+    /**
+     * 衔接IndexController的方法显示主页
+     */
     public function indexPage(){
         $this->display("successLogin");
     }
 
+    /**
+     * @param $shopitemId 商品id
+     * @return 商品信息页面
+     */
     public function bookInfoPage($shopitemId){
         $Shopitem = M('shopitem');
         $shopitem = $Shopitem->find($shopitemId);
@@ -21,6 +39,9 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * @return 返回个人信息页面
+     */
     public function myInfoPage(){
         $data = array(
             'name' => session('user')['name'],
@@ -34,6 +55,10 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * @param $shopId 书店id
+     * @return 返回书店信息页面
+     */
     public function bookshopInfoPage($shopId){
         $Shop = M('shop');
         $info = $Shop->find($shopId);
@@ -52,16 +77,25 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * @return 个人订单详情
+     */
     public function orderInfoPage(){
         $this->display();
 
     }
 
+    /**
+     * @return 联系开发者页面
+     */
     public function contaceusInfoPage(){
         $this->display();
 
     }
 
+    /**
+     * @return 完善信息页面
+     */
     public function improveInfoPage(){
         $data = array(
             'name' => session('user')['name'],
@@ -76,6 +110,9 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * 接受修改后的信息修改数据库
+     */
     public function submitInfo(){
         $userData = array(
             'name' => $_POST['name']
