@@ -1,48 +1,79 @@
 <?php
-/**
- * Created by CQU-CST-WuErli.
- * Date: 2016/11/19
- * Time: 13:07
- */
+
 namespace Home\Controller;
 use Think\Controller;
-
-/**
- * Class InformationController
- * @package Home\Controller
- * @URL /BookTradingSystem/Infomation
- * 信息查询显示模块
- */
 class InformationController extends BaseController
 {
-    /**
-     * 衔接IndexController的方法显示主页
-     */
     public function indexPage(){
+//        dump(session('user'));
+//        dump(session('userinfo'));
+        $User = M('User');
+        $list = array(
+            0 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            1 => array(
+                'username' => 'wel',
+                'bookname' => '钢铁是怎样练成的2',
+                'totalmoney' => '156.5',
+            ),
+            2 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            3 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            4 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            5 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            6 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            7 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            8 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            9 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            )
+        );
+        $this->assign('ccz',15);
+        $this->assign('list',$list);
         $this->display("successLogin");
     }
 
-    /**
-     * @param $shopitemId 商品id
-     * @return 商品信息页面
-     */
-    public function bookInfoPage($shopitemId){
-        $Shopitem = M('shopitem');
-        $shopitem = $Shopitem->find($shopitemId);
-        $this->assign('shopname', $shopitem['shopname']);
-        $Book = M('book');
-        $book = $Book->find($shopitem['bookid']);
-        $this->assign('book', $book);
-
-        $link = "/BookTradingSystem/Home/Information/bookshopInfoPage/shopId/" . $shopitem['shopid'];
-        $this->assign('link', $link);
+    public function bookInfoPage(){
         $this->display();
     }
 
-    /**
-     * @return 返回个人信息页面
-     */
     public function myInfoPage(){
+//        $User = M('user');
+//        $UserInfo = M('userinfo');
+//        $result = $User->where("uniqueid=%s", session('userid'))->select();
+//        $info = $UserInfo->where("uniqueid=%s", $result[0]['userinfoid'])->select();
         $data = array(
             'name' => session('user')['name'],
             'tel' => session('userinfo')['tel'],
@@ -55,48 +86,92 @@ class InformationController extends BaseController
         $this->display();
     }
 
-    /**
-     * @param $shopId 书店id
-     * @return 返回书店信息页面
-     */
-    public function bookshopInfoPage($shopId){
-        $Shop = M('shop');
-        $info = $Shop->find($shopId);
-        $Shopitem = M('shopitem');
-        $bookidList = $Shopitem->where("shopid=%s", $shopId)->getField('bookid', true);
-        $Book = M('book');
-        $index = 0;
-        foreach ($bookidList as $id){
-            $result = $Book->find($id);
-            $list[$index]['name'] = $result['name'];
-            $list[$index]['author'] = $result['author'];
-            $index++;
-        }
-//        dump($list);
-        $this->assign('list', $list);
+    public function bookshopInfoPage(){
+        $User = M('User');
+        $list = array(
+            0 => array(
+                'id' => 'etet',
+                'name' => '12123'
+            ),
+            1 => array(
+                'id' => 'etet1',
+                'name' => 'cz1996'
+            )
+        );
+        $this->assign('list',$list);
         $this->display();
     }
 
-    /**
-     * @return 个人订单详情
-     */
     public function orderInfoPage(){
+        $User = M('User');
+        $list = array(
+            0 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            1 => array(
+                'username' => 'wel',
+                'bookname' => '钢铁是怎样练成的2',
+                'totalmoney' => '156.5',
+            ),
+            2 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            3 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            4 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            5 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            6 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            7 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            8 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            ),
+            9 => array(
+                'username' => 'cz',
+                'bookname' => '钢铁是怎样练成的1',
+                'totalmoney' => '156.5',
+            )
+        );
+        $this->assign('ccz',15);
+        $this->assign('list',$list);
         $this->display();
 
     }
 
-    /**
-     * @return 联系开发者页面
-     */
     public function contaceusInfoPage(){
         $this->display();
 
     }
 
-    /**
-     * @return 完善信息页面
-     */
     public function improveInfoPage(){
+//        $User = M('user');
+//        $UserInfo = M('userinfo');
+//        $result1 = $User->where("uniqueid=%s", session('userid'))->select();
+//        $result2 = $UserInfo->where("uniqueid=%s", $result1[0]['userinfoid'])->select();
         $data = array(
             'name' => session('user')['name'],
             'tel' => session('userinfo')['tel'],
@@ -110,9 +185,6 @@ class InformationController extends BaseController
         $this->display();
     }
 
-    /**
-     * 接受修改后的信息修改数据库
-     */
     public function submitInfo(){
         $userData = array(
             'name' => $_POST['name']

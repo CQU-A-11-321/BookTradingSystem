@@ -52,3 +52,10 @@ function panduan() {
         dis.value="无";
     }
 }
+
+function duiqi(){
+
+    document.getElementById("info-divone1").style.height=document.getElementById("main").scrollHeight+"px";
+    document.getElementById("info-divtwo1").style.height=document.getElementById("main").scrollHeight-2+"px";
+
+}

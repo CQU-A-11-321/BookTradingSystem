@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>我的订单</title>
     <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/info.css">
+    <script type="text/javascript" src = "{:C('ACZ_ROOT')}/info.js"></script>
 </head>
-<body>
+<body onload="duiqi()">
 <div id="header">
     <div>
         <div  style="margin-top: 30px;font-size: 80px;" align="center">321 BK House</div>
@@ -24,19 +25,26 @@
     </nav>
 
 </div>
-<div id="info-head">
-    <!--<a href="https://www.baidu.com"><img src="{:C('PCZ_ROOT')}/c2.png" class="head-img1" style="margin-left: 10%;"/></a>-->
-    <!--<a href="https://www.baidu.com">返回上一级</a>-->
-    <!--<a href="https://www.baidu.com" style="float: right;margin-right: 13%;">返回主页</a>-->
-    <!--<b style="float: right;margin-right: 3px;"><<</b>-->
-    <!--<a href="https://www.baidu.com"><img src="{:C('PCZ_ROOT')}/c1.png" class="head-img1" style="float:right;margin-right: 3px;"/></a>-->
-
+<div id="info-divone"></div>
+<div id="info-divtwo1">
+    <div id="booktwo-two" name="bookdisplay">
+        <volist name="list" id="vo"  empty="暂时没有书籍寄售">
+            <a href="#">
+                <div class="usdiv" name="tableform" id="tableone" onclick="click()">
+                    <div class="divone">{$vo.username}</div>
+                    <div class="divone" style=" margin-left: 7%;">{$vo.bookname}</div>
+                    <div class="divone">{$vo.totalmoney}</div>
+                </div>
+            </a>
+        </volist>
+    </div>
+</div>
 <div id="info-divthree"></div>
 <div id="footer">
-    <div>
-        <br/>
-    </div>
-    Copyright 321BKHouse.co 2016
+<div>
+    <br/>
+</div>
+Copyright 321BKHouse.co 2016
 </div>
 </body>
 </html>
