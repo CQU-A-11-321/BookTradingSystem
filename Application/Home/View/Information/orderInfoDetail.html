@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购买</title>
+    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/info.css">
+</head>
+
+<body>
+<div id="header">
+    <div>
+        <div  style="margin-top: 30px;font-size: 80px;" align="center">321 BK House</div>
+    </div>
+    <nav>
+        <ul>
+            <li> <a href="#">导航栏</a>
+                <ul>
+                    <li> <a href="indexPage"> 主页 </a> </li>
+                    <li> <a href="bookshopInfoPage"> 我的书店 </a> </li>
+                    <li> <a href="orderInfoPage"> 我的订单 </a> </li>
+                    <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+<div id="mainbody">
+    <div id="infodetail">
+        <div><p class="info_t" id="bkinfo_t">我的订单</p></div>
+        <div id="bkinfo">
+            <form>
+                <ol>
+                    <li class="info-li">订单序号：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                    <br/>
+                    <li class="info-li">下单时间：<input type="text" name="zipcode" class="ipt" readonly="1" value={$data.zipcode}></li>
+                    <br/>
+                    <li class="info-li">购买书名：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                    <br/>
+                    <li class="info-li">购买书店：<input type="email" name="email" class="ipt" readonly="1" value={$data.email}></li>
+                    <br/>
+                    <li class="info-li">已经付款：<input type="text" name="money" class="ipt" readonly="1" value={$data.money}></li>
+                    <br/>
+                    <li class="info-li">快递单号：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                    <br/>
+                    <li class="info-li">收货地址：<input type="text" name="money" class="ipt" readonly="1" value={$data.money}></li>
+                    <br/>
+                    <li class="info-li">联系电话：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                </ol>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="footer">
+    <div>
+        <br/>
+    </div>
+    Copyright 321BKHouse.co 2016
+</div>
+</body>
+</html>

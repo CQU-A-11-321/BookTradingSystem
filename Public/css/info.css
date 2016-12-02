@@ -70,7 +70,7 @@ body,h4,h5,img
 }
 #header
 {
-    background-color: black;
+    background-color: #00a65a;
     float:left;
     height:200px;
     width: 100%;
@@ -153,12 +153,13 @@ body,h4,h5,img
 
 #footer
 {
-    background-color:black;
+    background-color:#00a65a;
     color:white;
     clear:both;
     height: 50px;
+    font-family: 微软雅黑;
+    font-size: 18px;
     text-align:center;
-    /*padding:1%;*/
 }
 
 nav{
@@ -167,24 +168,69 @@ nav{
     width: 150px;
     height: 41px;
     margin-top: 32px;
-    background-color:#000000;
+    background-color:#29CC59;
 }
-nav ul{
-    list-style: none;
+
+nav ul
+{
+    list-style: armenian;
 }
-nav ul li{
-    float: left;
+nav ul li
+{
+    float:right;
     width: 150px;
 }
-nav ul li a{
-    text-decoration: none; display: block; height: 41px; line-height: 41px; background-color: #1f1f1f; color: #FFFFFF; text-align: center;font-size: 30px; position: relative;}
-nav ul li ul li{ display: none;}
-nav ul li ul li a{
-    text-decoration: none; height: 41px; line-height: 41px; width: 150px; background-color: #1f1f1f; color:#0d6aad; text-align: center; font-size: 20px; position: relative; z-index: 9999; opacity: 0.91;}
-nav ul{margin:0px; padding: 0px;}
-nav ul li:hover ul li{display: block;}
-nav ul li ul li a:hover{
-    background-color: #F5F5FF; color: #68A6D9;}
+nav ul li a
+{
+    text-decoration:none;
+    display:block;
+    height: 41px;
+    line-height: 41px;
+    background-color:#29CC59;
+    color: #FFFFFF;
+    text-align:center;
+    font-size: 24px;
+    font-family: 等线;
+    position: relative;
+}
+
+nav ul li ul li
+{
+    display: none;
+}
+
+nav ul li ul li a
+{
+    text-decoration: none;
+    height: 41px;
+    line-height:41px;
+    width: 150px;
+    background-color: #29CC59;
+    color:#FFFFFF;
+    text-align: center;
+    font-family: 等线;
+    font-size: 17px;
+    position: relative;
+    z-index: 9999;
+    opacity: 0.91;
+}
+
+nav ul
+{
+    margin:0px;
+    padding: 0px;
+}
+
+nav ul li:hover ul li
+{
+    display: block;
+}
+
+nav ul li ul li a:hover
+{
+    background-color: #FFFFFF;
+    color: #00a65a;
+}
 
 .info-select
 {
@@ -204,6 +250,8 @@ nav ul li ul li a:hover{
 .info-li
 {
     list-style-type:none;
+    font-family: 等线;
+    font-size: 24px;
 }
 
 .info-welcome
@@ -213,12 +261,12 @@ nav ul li ul li a:hover{
     margin-left:48.6%;
 
     text-decoration:none;
-    background:#2f435e;
+    background:#00a65a;
     color:#f2f2f2;
 
     padding: 10px 30px 10px 30px;
-    font-size:16px;
-    font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+    font-size:20px;
+    font-family: 等线,Arial;
     font-weight:bold;
     border-radius:3px;
 
@@ -239,7 +287,7 @@ nav ul li ul li a:hover{
 
     padding: 5px 10px 5px 10px;
     font-size:16px;
-    font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+    font-family: 等线,Arial;
     font-weight:bold;
     border-radius:3px;
 
@@ -306,7 +354,6 @@ nav ul li ul li a:hover{
     margin-top: 6%;
     color: white;
     font-size: 40px;
-    background-color: #c6c6c6;
 }
 
 #usone
@@ -315,30 +362,31 @@ nav ul li ul li a:hover{
     height: 58%;
     margin-left: 10%;
     margin-top: 4%;
-    background-color: #72d0eb;
+    background-color:#92CC90;
 }
 
 .usdiv
 {
     width: 100%;
-    height: 80px;
+    height: 60px;
     font-size: 25px;
-    margin-top: 2%;
-    background-color:#1ABC9C;
-    color:#008800;
+    margin-top: 0%;
+    background-color:#00a65a;
+    color:#FFFFFF;
 }
 
 .divone
 {
+    font-family: 等线;
     float:left;
-    margin-top: 4%;
-    margin-left: 10%;
+    margin-top: 2%;
+    margin-left: 13%;
 }
 
 .usdiv:hover
 {
-    background-color:#95C8F1;
-    color:#1ABC9C;
+    background-color:#FFFFFF;
+    color:#1f1f1f;
 }
 
 .shudian
@@ -400,7 +448,7 @@ nav ul li ul li a:hover{
     /*list-style-type:none;*/
     height: 30px;
     width: 150px;
-    background-color:#68A6D9;
+    background-color: #00a65a;
     text-align: center;
     margin: 5px;
     list-style:none;
@@ -408,7 +456,7 @@ nav ul li ul li a:hover{
 
 .li1:hover
 {
-    background-color: #008800;
+    background-color: #FFFFFF;
 }
 #little
 {
@@ -450,3 +498,68 @@ nav ul li ul li a:hover{
 }
 
 
+
+#mainbody
+ {
+     background-color: #92CC90;
+     width:70%;
+     height:800px;
+     margin: auto;
+ }
+
+#infodetail
+{
+    width:70%;
+    height:800px;
+    margin: auto;
+
+}
+
+.info_t
+{
+    position:relative;
+    height：700px;
+    font-family:等线;
+    font-size:30px;
+    color:#1f1f1f;
+    text-align: center;
+}
+
+#bkinfo_t
+{
+    padding-top:250px;
+}
+
+#bkinfo
+{
+    font-family:等线;
+    font-size:24px;
+    margin:auto;
+    color:#1f1f1f;
+    text-align: center;
+}
+
+#floatTab
+{
+    background-color:#fafafa;
+    width:20%;
+    float: left;
+    left:85%;
+    height: 0px;
+    position:fixed;
+    top: 30%;
+    opacity:1;
+}
+
+.advice
+{
+    font-family: 等线;
+    font-size: 22px;
+    color:#FFFFFF;
+    text-decoration:none;
+}
+
+.advice:hover
+{
+    color: #1f1f1f;
+}

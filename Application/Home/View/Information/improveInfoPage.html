@@ -26,7 +26,7 @@
 
     </div>
     <div id="info-divone"></div>
-    <div id="info-divtwo">
+    <div id="info-divtwo" style="background-color: #92CC90">
         <div>
         <form id = "info-form" name="improve-form" action="submitInfo" method="post">
             <ol>
@@ -40,7 +40,7 @@
                 </li>
                 <br/>
                 <li class="info-li">邮编：<input type="text" name="zipcode" class="iptone" value={$data.zipcode}></li>
-                <li class="info-li"><br/>地址：<br/><textarea rows="5" cols="70" name="address" style="text-align: center;font-weight:bold;">{$data.address} </textarea></li>
+                <li class="info-li"><br/>地址：<br/><textarea rows="5" cols="70" name="address" style="text-align: center;font-family: 等线;font-size: 20px;">{$data.address} </textarea></li>
             </ol>
             <input type="submit" id="iptt" class = "info-welcome" value="提交" style="margin-left:40%;">
         </form>
