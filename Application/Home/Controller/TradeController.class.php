@@ -8,8 +8,8 @@ namespace Home\Controller;
 use Think\Controller;
 class TradeController extends BaseController
 {
-    public function tradePage()
-    {
+    public function tradePage($bookid = 1, $bookshopid = 1){
+
         $this->display();
     }
 }

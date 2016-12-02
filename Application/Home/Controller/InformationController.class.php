@@ -38,6 +38,7 @@ class InformationController extends BaseController
         $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
         $this->assign('link', $link);
         $this->assign('toAdd', "addToCart?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+        $this->assign('buy', "buy?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
         $this->display();
     }
 
@@ -155,6 +156,11 @@ class InformationController extends BaseController
         );
         $Order->add($data);
         $this->success("添加购物车成功。");
+    }
+
+    public function buy($bookid = 1, $bookshopid = 1) {
+        $url = "/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid;
+        $this->redirect($url);
     }
 
 }
