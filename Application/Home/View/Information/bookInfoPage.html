@@ -13,7 +13,7 @@
         </div>
         <nav>
             <ul>
-                <li> <a href="#">导航栏</a>
+                <li> <a href="">导航栏</a>
                     <ul>
                         <li> <a href="/BookTradingSystem/Home/Information/indexPage"> 主页 </a> </li>
                         <li> <a href="/BookTradingSystem/Home/Information/myInfoPage"> 我的资料 </a> </li>
@@ -34,7 +34,7 @@
         <!--<a href="https://www.baidu.com"><img src="{:C('PCZ_ROOT')}/c1.png" class="head-img1" style="float:right;margin-right: 3px;"/></a>-->
     </div>
     <div id="info-divone"></div>
-    <form id="info-divtwo" method="post" action="addToCart">
+    <form id="info-divtwo" method="post" >
         <div id="info-divtwo-one">
             <img src="{:C('PCZ_ROOT')}/cc1.jpg" id="divtwo-one-img">
         </div>
@@ -43,6 +43,7 @@
             <table id="divtwo-table">
                 <tr>
                     <td>
+
                         <b>书名:</b><input type="text" name="name" class="ipt" readonly="1" value={$book.name}><br/>
                     </td>
                 </tr>
@@ -77,8 +78,8 @@
             <textarea rows="7" cols="100%" style="margin-left: 10%" readonly="1">{$book.mark}</textarea>
         </div>
         <br/>
-        <input type="submit" id="ipt1" class = "button_welcome1" value="加入购物车" style="margin-left:30%;float: left;background-color: #2F5BB7;cursor:pointer">
-        <input type="submit" id="ipt2" class = "button_welcome1" value="点击购买" style="margin-left:2%;float: left;background-color: #95C8F1; cursor:pointer">
+        <input type="submit" id="ipt1" formaction={$toAdd} class = "button_welcome1" value="加入购物车" style="margin-left:30%;float: left;background-color: #2F5BB7;cursor:pointer">
+        <input type="submit" id="ipt2" formaction="" class = "button_welcome1" value="点击购买" style="margin-left:2%;float: left;background-color: #95C8F1; cursor:pointer">
     </form>
     <div id="info-divthree"></div>
     <div id="footer">

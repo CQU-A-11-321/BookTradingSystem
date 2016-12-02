@@ -37,6 +37,7 @@ class InformationController extends BaseController
         $this->assign('shopname', $shop['shopname']);
         $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
         $this->assign('link', $link);
+        $this->assign('toAdd', "addToCart?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
         $this->display();
     }
 
@@ -133,14 +134,27 @@ class InformationController extends BaseController
         $this->display();
     }
 
-    public function addToCart() {
+    public function addToCart($bookid = 1, $bookshopid = 1) {
         $Order = M('order');
-        $unique = sizeof($Order->select());
+        $uniqueid = $Order->count();
+        $uniqueid++;
         $data = array(
-            'uniqueid' => $unique,
+            'uniqueid' => $uniqueid,
             'userid' => session('user')['uniqueid'],
             'username' => session('user')['name'],
+            'shopid' => $bookshopid,
+            'shopname' => M('shop')->where("uniqueid=%s", $bookshopid)->getField('shopname'),
+            'bookid' => $bookid,
+            'bookname' => M('book')->where("uniqueid=%s", $bookid)->getField('name'),
+            'totalmoney' => M('book')->where("uniqueid=%s", $bookid)->getField('price'),
+            'address' => session('userinfo')['address'],
+            'tel' => session('userinfo')['tel'],
+            'email' => session('userinfo')['email'],
+            'createdate' => date("Y-m-d H:i:s"),
+            'state' => "0",
         );
+        $Order->add($data);
+        $this->success("添加购物车成功。");
     }
 
 }
