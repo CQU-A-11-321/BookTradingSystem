@@ -36,7 +36,7 @@
 <div id="info-divtwo">
     <div id="bookone" style="background-image: url({:C('PCZ_ROOT')}/cc4.jpg);background-size: 100% 100%;">
         <div class="sizediv">
-            书屋
+            {$bookshopname}
         </div>
     </div>
     <div id="booktwo">
@@ -45,11 +45,11 @@
         </div>
         <div id="booktwo-two" name="bookdisplay">
                 <volist name="list" id="vo"  empty="暂时没有书籍寄售">
-                    <a href="#">
+                    <a href={$vo.link}>
                         <div class="usdiv" name="tableform" id="tableone" onclick="click()">
                             <div class="divone">{$vo.name}</div>
                             <div class="divone" style=" margin-left: 7%;">{$vo.author}</div>
-                            <div class="divone"></div>
+                            <div class="divone">{$vo.price}</div>
                         </div>
                     </a>
                 </volist>
