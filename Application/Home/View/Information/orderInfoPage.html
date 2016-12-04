@@ -30,9 +30,9 @@
     <div id="booktwo-two" name="bookdisplay">
         <div style="width: 100%;height: 50px;font-size: 40px;text-align: center">订单数据</div>
         <volist name="list" id="vo"  empty="暂无订单">
-            <a href="#">
+            <a href={$vo.link}>
                 <div class="usdiv" name="tableform" id="tableone" onclick="click()">
-                    <div class="divone">{$vo.username}</div>
+                    <div class="divone">{$vo.shopname}</div>
                     <div class="divone" style=" margin-left: 7%;">{$vo.bookname}</div>
                     <div class="divone">{$vo.totalmoney}</div>
                 </div>

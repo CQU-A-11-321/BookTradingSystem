@@ -85,10 +85,31 @@ class InformationController extends BaseController
     }
 
     public function orderInfoPage(){
+        $Order = M('order');
+        $list = $Order->where("userid=%s", session('user')['uniqueid'])->select();
+        for ($i = 0; $i < sizeof($list); $i++) {
+            $list[$i]['link'] = "orderInfoDetail?orderid=" . $list[$i]['uniqueid'];
+        }
+//        dump($list);
 
+        $this->assign('list', $list);
         $this->assign('link', session('link'));
         $this->display();
 
+    }
+
+    public function orderInfoDetail($orderid) {
+        $Order = M('order');
+        $orderinfo = $Order->find($orderid);
+//        dump($orderinfo);
+
+        if($orderinfo['state'] == "0") $orderinfo['state'] = "未付款";
+        else $orderinfo['state'] = "已付款";
+
+        $this->assign('data', $orderinfo);
+
+        $this->assign('link', session('link'));
+        $this->display();
     }
 
     public function contactusInfoPage(){
@@ -138,10 +159,6 @@ class InformationController extends BaseController
         session('userinfo', $session2);
 
         $this->success("修改成功", "myInfoPage");
-    }
-
-    public function orderInfoDetail($shopId = 1) {
-        $this->display();
     }
 
     public function addToCart($bookid, $bookshopid) {

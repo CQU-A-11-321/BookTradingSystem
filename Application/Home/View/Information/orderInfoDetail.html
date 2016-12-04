@@ -16,7 +16,7 @@
             <li> <a href="#">导航栏</a>
                 <ul>
                     <li> <a href="indexPage"> 主页 </a> </li>
-                    <li> <a href="bookshopInfoPage"> 我的书店 </a> </li>
+                    <li> <a href={$link}> 我的书店 </a> </li>
                     <li> <a href="orderInfoPage"> 我的订单 </a> </li>
                     <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
                 </ul>
@@ -32,21 +32,20 @@
         <div id="bkinfo">
             <form>
                 <ol>
-                    <li class="info-li">订单序号：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                    <li class="info-li">订单序号：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.uniqueid}></li>
                     <br/>
-                    <li class="info-li">下单时间：<input type="text" name="zipcode" class="ipt" readonly="1" value={$data.zipcode}></li>
+                    <li class="info-li">下单时间：<input type="text" name="zipcode" class="ipt" readonly="1" value={$data.createdate}></li>
                     <br/>
-                    <li class="info-li">购买书名：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                    <li class="info-li">购买书名：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.bookname}></li>
                     <br/>
-                    <li class="info-li">购买书店：<input type="email" name="email" class="ipt" readonly="1" value={$data.email}></li>
+                    <li class="info-li">购买书店：<input type="email" name="email" class="ipt" readonly="1" value={$data.shopname}></li>
                     <br/>
-                    <li class="info-li">已经付款：<input type="text" name="money" class="ipt" readonly="1" value={$data.money}></li>
+                    <li class="info-li">付款情况：<input type="text" name="money" class="ipt" readonly="1" value={$data.state}></li>
+                    <!--<li class="info-li">快递单号：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>-->
                     <br/>
-                    <li class="info-li">快递单号：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                    <li class="info-li">收货地址：<input type="text" name="money" class="ipt" readonly="1" value={$data.address}></li>
                     <br/>
-                    <li class="info-li">收货地址：<input type="text" name="money" class="ipt" readonly="1" value={$data.money}></li>
-                    <br/>
-                    <li class="info-li">联系电话：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
+                    <li class="info-li">联系电话：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.tel}></li>
                 </ol>
             </form>
 
