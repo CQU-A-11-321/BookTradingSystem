@@ -158,6 +158,7 @@ class InformationController extends BaseController
         session('user', $session1);
         session('userinfo', $session2);
 
+        $this->updateUserInfoToEachTable();
         $this->success("修改成功", "myInfoPage");
     }
 
