@@ -91,7 +91,7 @@ class InformationController extends BaseController
 
     }
 
-    public function contaceusInfoPage(){
+    public function contactusInfoPage(){
 
         $this->assign('link', session('link'));
         $this->display();
