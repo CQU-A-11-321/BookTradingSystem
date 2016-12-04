@@ -25,6 +25,11 @@ class InformationController extends BaseController
 //        dump($list);
         $this->assign('list', $list);
 
+        $BookShop = M('shop');
+        $bookshopid = $BookShop->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
+        $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
+        $this->assign('link', $link);
+        session('link', $link);
         $this->display("successLogin");
     }
 
@@ -52,10 +57,11 @@ class InformationController extends BaseController
             'address' => session('userinfo')['address']
         );
         $this->assign('data', $data);
+        $this->assign('link', session('link'));
         $this->display();
     }
 
-    public function bookshopInfoPage($bookshopid = 1){
+    public function bookshopInfoPage($bookshopid){
         $Bookshop = M('shop');
         $shop = $Bookshop->where("uniqueid=%s", $bookshopid)->getField('shopname');
         $this->assign('bookshopname', $shop);
@@ -80,11 +86,14 @@ class InformationController extends BaseController
 
     public function orderInfoPage(){
 
+        $this->assign('link', session('link'));
         $this->display();
 
     }
 
     public function contaceusInfoPage(){
+
+        $this->assign('link', session('link'));
         $this->display();
 
     }
@@ -135,7 +144,7 @@ class InformationController extends BaseController
         $this->display();
     }
 
-    public function addToCart($bookid = 1, $bookshopid = 1) {
+    public function addToCart($bookid, $bookshopid) {
         $Order = M('order');
         $uniqueid = $Order->count();
         $uniqueid++;
