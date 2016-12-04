@@ -44,6 +44,9 @@ class InformationController extends BaseController
         $this->assign('link', $link);
         $this->assign('toAdd', "addToCart?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
         $this->assign('buy', "buy?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+
+        $this->assign('link', $link);
+
         $this->display();
     }
 
@@ -80,7 +83,14 @@ class InformationController extends BaseController
             $index++;
         }
 //        dump($list);
-        $this->assign('list', $list);
+        $this->assign('list', session('link'));
+
+        $id = $Bookshop->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
+        if ($id != $bookshopid) {
+            $another = "<li> <a href=" . session('link') . "> 我的书店 </a> </li>";
+            $this->assign('another', $another);
+        }
+
         $this->display();
     }
 
@@ -130,6 +140,7 @@ class InformationController extends BaseController
         );
 //        dump($data);
         $this->assign("data", $data);
+        $this->assing('link', session('link'));
         $this->display();
     }
 
@@ -213,6 +224,7 @@ class InformationController extends BaseController
         }
 
         $this->assign('list', $list);
+        $this->assign('link', session('link'));
 
         $this->display();
     }
@@ -229,6 +241,7 @@ class InformationController extends BaseController
         $session1 = $UserInfo->find(session('userinfo')['uniqueid']);
         session('userinfo', $session1);
 
+        $this->assign('link', session('link'));
         $this->success("充值成功！");
     }
 
