@@ -33,7 +33,7 @@
 </div>
 <div id="info-divone"></div>
 <div id="info-divtwo" style="background-color: #92CC90;">
-    <form id = "info-form" name="improve-form" action="improveInfoPage" method="post">
+    <form id = "info-form" name="improve-form" method="post">
         <ol>
             <li class="info-li">姓名：<input type="text" name="name" id="wo1" class="ipt" readonly="1" value={$data.name}></li>
             <br/>
@@ -46,8 +46,8 @@
             <li class="info-li">账户余额：<input type="text" name="money" class="ipt" readonly="1" value={$data.money}></li>
             <li class="info-li"><br/>地址：<br/><textarea rows="5" cols="70" name="address" readonly="1" style="text-align: center;font-family: 等线;font-size: 20px">{$data.address} </textarea></li>
         </ol>
-        <input type="submit" id="iptt1" class = "info-welcome" value="充值" style="margin-left:35%;cursor:pointer;float: left">
-        <input type="submit" id="iptt" class = "info-welcome" value="修改资料" style="margin-left:5%;cursor:pointer;float: left">
+        <input type="submit" id="iptt1" class = "info-welcome" value="充值" style="margin-left:35%;cursor:pointer;float: left" formaction="rechargeInfoPage">
+        <input type="submit" id="iptt" class = "info-welcome" value="修改资料" style="margin-left:5%;cursor:pointer;float: left" formaction="improveInfoPage">
     </form>
 </div>
 <div id="info-divthree"></div>

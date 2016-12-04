@@ -199,4 +199,19 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    public function rechargeInfoPage() {
+        $this->assign('link', session('link'));
+        $this->display();
+    }
+
+    public function recharge() {
+        $money = $_POST['money'];
+        $UserInfo = M('userinfo');
+        $UserInfo->where("uniqueid=%s", session('userinfo')['uniqueid'])->setInc('money', $money);
+        $session1 = $UserInfo->find(session('userinfo')['uniqueid']);
+        session('userinfo', $session1);
+
+        $this->success("充值成功！");
+    }
+
 }
