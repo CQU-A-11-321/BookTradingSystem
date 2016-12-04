@@ -29,7 +29,7 @@
     <div style="margin-top: 5%">
         <form action="" method="post">
             <input type="text" name="search" class="search1">
-            <input type="submit" name="searchup" class="search2" value="搜索">
+            <input type="submit" name="searchup" class="search2" value="搜索" formaction="searchInfoPage">
         </form>
     </div>
     <div id="booktwo-two" name="bookdisplay" style="margin-top: 5%;text-align: center">
@@ -39,6 +39,7 @@
                     <div class="divone">{$vo.name}</div>
                     <div class="divone" style=" margin-left: 7%;">{$vo.author}</div>
                     <div class="divone">{$vo.price}</div>
+                    <div class="divone">{$vo.shopname}</div>
                 </div>
             </a>
         </volist>

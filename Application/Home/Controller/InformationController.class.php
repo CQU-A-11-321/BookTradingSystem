@@ -33,7 +33,7 @@ class InformationController extends BaseController
         $this->display("successLogin");
     }
 
-    public function bookInfoPage($bookid = 1, $bookshopid = 1){
+    public function bookInfoPage($bookid, $bookshopid){
         $Book = M('book');
         $book = $Book->find($bookid);
         $Bookshop = M('shop');
@@ -170,6 +170,33 @@ class InformationController extends BaseController
     public function buy($bookid = 1, $bookshopid = 1) {
         $url = "/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid;
         $this->redirect($url);
+    }
+
+    public function searchInfoPage() {
+        $condition = $_POST['search'];
+//        dump($condition);
+        $Shopitem = M('shopitem');
+
+        if ($condition == null) {
+            $data = $Shopitem->select();
+        }
+        else {
+            $map['bookname'] = array('like', '%' . $condition . '%');
+            $data = $Shopitem->where($map)->select();
+        }
+
+        $Book = M('book');
+        for ($i = 0; $i < sizeof($data); $i++) {
+            $list[$i]['name'] = $data[$i]['bookname'];
+            $list[$i]['aurhor'] = $Book->where("uniqueid=%s", $data[$i]['bookid'])->getField('author');
+            $list[$i]['price'] = $Book->where("uniqueid=%s", $data[$i]['bookid'])->getField('price');
+            $list[$i]['shopname'] = M('shop')->where("uniqueid=%s", $data[$i]['shopid'])->getField('shopname');
+            $list[$i]['link'] = "bookInfoPage?bookid=" . $data[$i]['bookid'] . "&bookshopid=" . $data[$i]['shopid'];
+        }
+
+        $this->assign('list', $list);
+
+        $this->display();
     }
 
 }
