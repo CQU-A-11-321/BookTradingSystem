@@ -588,3 +588,53 @@ nav ul li ul li a:hover
     height: 30px;
     font-size: 20px;
 }
+
+.bkblock
+{
+    width:50%;
+    float:left;
+    position:relative;
+}
+
+.bkpic
+{
+    width:33.3%;
+    height:100%;
+    float:left;
+}
+
+.bkname
+{
+    width:40%;
+    height:100%;
+    margin-left: 58%;
+    margin-top: 6%;
+    font-family: 华文细黑;
+    font-size: 28px;
+    color: #1f1f1f;
+}
+
+.bkprice
+{
+    width:40%;
+    height:100%;
+    margin-left: 58%;
+    font-family: Broadway;
+    font-size: 46px;
+    color: #CC4B22;
+    position:absolute;
+    right:0px;
+    bottom:-280px;
+}
+
+.bkauthor
+{
+    width:40%;
+    margin-left: 58%;
+    margin-top: 6%;
+    font-family: 新宋体;
+    font-size: 12px;
+    color: #1f1f1f;
+    margin-bottom: 7%;
+
+}
