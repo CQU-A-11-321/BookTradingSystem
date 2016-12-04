@@ -43,7 +43,7 @@ class InformationController extends BaseController
         $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
         $this->assign('link', $link);
         $this->assign('toAdd', "addToCart?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
-        $this->assign('buy', "buy?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+        $this->assign('buy', "/BookTradingSystem/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
 
         $this->assign('link', $link);
 
@@ -72,6 +72,7 @@ class InformationController extends BaseController
         $Shopitem = M('shopitem');
         $shopitems = $Shopitem->where("shopid=%s", $bookshopid)->select();
 
+//        dump($shopitems);
         $Book = M('book');
 
         $index = 0;
@@ -83,12 +84,14 @@ class InformationController extends BaseController
             $index++;
         }
 //        dump($list);
-        $this->assign('list', session('link'));
+        $this->assign('list', $list);
 
         $id = $Bookshop->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
+        $this->assign('flag', "1");
         if ($id != $bookshopid) {
             $another = "<li> <a href=" . session('link') . "> 我的书店 </a> </li>";
             $this->assign('another', $another);
+            $this->assign('flag', "0");
         }
 
         $this->display();
@@ -196,10 +199,9 @@ class InformationController extends BaseController
         $this->success("添加购物车成功。");
     }
 
-    public function buy($bookid = 1, $bookshopid = 1) {
-        $url = "/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid;
-        $this->redirect($url);
-    }
+//    public function buy($bookid = 1, $bookshopid = 1) {
+//        $this->redirect("Trade/tradePage", "bookid=" . $bookid . "&bookshopid=". $bookshopid);
+//    }
 
     public function searchInfoPage() {
         $condition = $_POST['search'];
