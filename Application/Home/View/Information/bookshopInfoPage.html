@@ -33,7 +33,7 @@
     <!--<a href="https://www.baidu.com"><img src="{:C('PCZ_ROOT')}/c1.png" class="head-img1" style="float:right;margin-right: 3px;"/></a>-->
 </div>
 <div id="info-divone"></div>
-<div id="info-divtwo">
+<div id="info-divtwo1">
     <div id="bookone" style="background-image: url({:C('PCZ_ROOT')}/cc4.jpg);background-size: 100% 100%;">
         <div class="sizediv">
             {$bookshopname}
@@ -54,6 +54,14 @@
                     </a>
                 </volist>
         </div>
+    </div>
+    <div>
+        <if condition="$test eq 1">
+            <input type="submit" id="iptt1" class = "info-welcome" value="添加书籍" style="margin-left:40%;cursor:pointer;float: left;margin-top: 2%">
+        </if>
+        <if condition="$test neq 1">
+
+        </if>
     </div>
 </div>
 <div id="info-divthree"></div>

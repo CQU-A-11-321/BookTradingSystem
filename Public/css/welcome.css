@@ -1,14 +1,37 @@
 body
 {
-    margin:0 auto;
+    margin:0;
     padding:0;
-    background-color:#fafafa;
+}
+
+#header
+{
+    background-color: #00a65a;
+    float:left;
+    height:200px;
+    width: 100%;
+    color:white;
+    text-align:center;
+    padding:1px;
+    font-family:"Buxton Sketch";
+    /*overflow: hidden;*/
+    font-size:36px
+}
+#footer
+{
+    background-color:#00a65a;
+    color:white;
+    clear:both;
+    height: 50px;
+    font-family: 微软雅黑;
+    font-size: 18px;
+    text-align:center;
 }
 
 .form_welcome
 {
     algin:center;
-    margin-top:250px;
+    /*margin-top:250px;*/
     /*align="center" style="margin-top:300px;"*/
 }
 

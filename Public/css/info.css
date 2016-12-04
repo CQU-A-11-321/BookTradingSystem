@@ -99,6 +99,16 @@ body,h4,h5,img
     left:20%;
     height: 600px;
 }
+
+#info-divtwo1
+{
+    /*background-color:#fafafa;*/
+    float: left;
+    width: 60%;
+    left:20%;
+    /*height: 600px;*/
+}
+
 #info-divthree
 {
     /*background-color:#72d0eb;*/
@@ -259,6 +269,7 @@ nav ul li ul li a:hover
     /*height:20px;*/
     /*width: 100px;*/
     margin-left:48.6%;
+    cursor: pointer;
 
     text-decoration:none;
     background:#00a65a;
@@ -562,4 +573,18 @@ nav ul li ul li a:hover
 .advice:hover
 {
     color: #1f1f1f;
+}
+
+.recharge
+{
+    width: 50%;
+    height: 200px;
+    padding: 20%;
+}
+
+.search3
+{
+    width: 55%;
+    height: 30px;
+    font-size: 20px;
 }

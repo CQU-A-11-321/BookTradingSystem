@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>购物车</title>
-    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/trade.css">
+    <title>充值页面</title>
+    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/info.css">
 </head>
 <body>
 <div id="header">
@@ -26,9 +26,17 @@
 </div>
 <div id="info-divone"></div>
 <div id="info-divtwo">
-    <div class="title">
-        购物车
-    </div>
+    <form class="recharge" method="post" action="">
+        <ol>
+            <li class="info-li">
+                充值金额：<input type="text" name="search" class="search3">
+            </li>
+            <li class="info-li">
+                <br/>
+                <input type="submit" id="iptt" class = "info-welcome" value="充值" style="margin-left:40%;">
+            </li>
+        </ol>
+    </form>
 </div>
 <div id="info-divthree"></div>
 <div id="footer">

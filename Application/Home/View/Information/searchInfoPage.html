@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>购物车</title>
-    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/trade.css">
+    <title>搜索页面</title>
+    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/info.css">
 </head>
 <body>
 <div id="header">
@@ -26,8 +26,22 @@
 </div>
 <div id="info-divone"></div>
 <div id="info-divtwo">
-    <div class="title">
-        购物车
+    <div style="margin-top: 5%">
+        <form action="" method="post">
+            <input type="text" name="search" class="search1">
+            <input type="submit" name="searchup" class="search2" value="搜索">
+        </form>
+    </div>
+    <div id="booktwo-two" name="bookdisplay" style="margin-top: 5%;text-align: center">
+        <volist name="list" id="vo"  empty="没有搜索到对应书籍">
+            <a href={$vo.link}>
+                <div class="usdiv" name="tableform" id="tableone" onclick="click()">
+                    <div class="divone">{$vo.name}</div>
+                    <div class="divone" style=" margin-left: 7%;">{$vo.author}</div>
+                    <div class="divone">{$vo.price}</div>
+                </div>
+            </a>
+        </volist>
     </div>
 </div>
 <div id="info-divthree"></div>
