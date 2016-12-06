@@ -149,7 +149,7 @@ class InformationController extends BaseController
         );
 //        dump($data);
         $this->assign("data", $data);
-        $this->assing('link', session('link'));
+        $this->assign('link', session('link'));
         $this->display();
     }
 
