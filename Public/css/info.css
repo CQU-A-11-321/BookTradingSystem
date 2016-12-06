@@ -378,23 +378,49 @@ nav ul li ul li a:hover
 
 .usdiv
 {
+    width: 85%;
+    height: 60px;
+    float: left;
+    font-size: 25px;
+    margin-top: 0%;
+    background-color:#00a65a;
+    color:#FFFFFF;
+}
+.usdiv1
+{
     width: 100%;
     height: 60px;
+    float: left;
     font-size: 25px;
     margin-top: 0%;
     background-color:#00a65a;
     color:#FFFFFF;
 }
 
+
+.usclick
+{
+    width: 15%;
+    height: 60px;
+    float: left;
+    background-color: #00a65a;
+}
+
 .divone
 {
     font-family: 等线;
     float:left;
-    margin-top: 2%;
-    margin-left: 13%;
+    /*margin-top: 2%;*/
+    /*margin-left: 13%;*/
 }
 
 .usdiv:hover
+{
+    background-color:#FFFFFF;
+    color:#1f1f1f;
+}
+
+.usdiv1:hover
 {
     background-color:#FFFFFF;
     color:#1f1f1f;

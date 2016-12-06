@@ -80,6 +80,7 @@ class InformationController extends BaseController
             $index++;
         }
 //        dump($list);
+        $this->assign('test',2);
         $this->assign('list', $list);
         $this->display();
     }
