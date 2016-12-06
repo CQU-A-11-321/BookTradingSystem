@@ -71,7 +71,7 @@ class InformationController extends BaseController
 
         $Shopitem = M('shopitem');
         $shopitems = $Shopitem->where("shopid=%s", $bookshopid)->select();
-
+//        dump($shopitems);
 //        dump($shopitems);
         $Book = M('book');
 
@@ -80,11 +80,11 @@ class InformationController extends BaseController
             $list[$index]['name'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('name');
             $list[$index]['author'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('author');
             $list[$index]['price'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('price');
+            $list[$index]['kind'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('kind');
             $list[$index]['link'] = "bookInfoPage?bookid=" . $item['bookid'] . "&bookshopid=" . $bookshopid;
+            $list[$index]['deleteLink'] = "deleteShopitem?shopitemid=" . $item['unqueid'];
             $index++;
         }
-//        dump($list);
-        $this->assign('test',2);
         $this->assign('list', $list);
 
         $id = $Bookshop->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
@@ -246,6 +246,18 @@ class InformationController extends BaseController
 
         $this->assign('link', session('link'));
         $this->success("充值成功！");
+    }
+
+    public function deleteShopitem($shopitemid) {
+        $Shopitem = M('shopitem');
+        $Shopitem->find($shopitemid);
+        $Shopitem->shopid = "-1";
+        $Shopitem->shopname = "-1";
+        $Shopitem->bookname = "-1";
+        $Shopitem->bookid = "-1";
+        $Shopitem->quantity = "-1";
+        $Shopitem->save();
+        $this->success("删除成功");
     }
 
 }

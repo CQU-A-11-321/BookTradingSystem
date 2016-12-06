@@ -46,28 +46,29 @@
         </div>
         <div name="bookdisplay">
                 <volist name="list" id="vo"  empty="暂时没有书籍寄售">
-                    <if condition="$test eq 1">
+                    <if condition="$flag eq 1">
                     <div class="usdiv">
                         <a href={$vo.link}>
                             <div class="divone" style="float: left;margin-left: 5%">书名：{$vo.name}</div>
                             <div class="divone" style="float: right;margin-right: 5%">作者：{$vo.author}</div>
                             <br/>
-                            <div class="divone" style="float: left;margin-left: 5%">类别：{$vo.price}</div>
-                            <div class="divone" style="float: right;margin-right: 5%">价格：￥100</div>
+                            <div class="divone" style="float: left;margin-left: 5%">类别：{$vo.kind}</div>
+                            <div class="divone" style="float: right;margin-right: 5%">价格：{$vo.price}</div>
                         </a>
                     </div>
                         <div class="usclick">
-                            <input type="submit" class = "info-welcomeoo" value="删除" style="cursor:pointer;float: left;margin-top: 9%;margin-left: 40%;">
+
+                            <a href={$vo.deleteLink} class = "info-welcomeoo" value="删除" style="cursor:pointer;float: left;margin-top: 9%;margin-left: 40%;">删除</a>
                         </div>
                     </if>
-                    <if condition="$test neq 1">
+                    <if condition="$flag neq 1">
                         <div class="usdiv1">
                             <a href={$vo.link}>
                                 <div class="divone" style="float: left;margin-left: 5%">书名：{$vo.name}</div>
                                 <div class="divone" style="float: right;margin-right: 5%">作者：{$vo.author}</div>
                                 <br/>
-                                <div class="divone" style="float: left;margin-left: 5%">类别：{$vo.price}</div>
-                                <div class="divone" style="float: right;margin-right: 5%">价格：￥100</div>
+                                <div class="divone" style="float: left;margin-left: 5%">类别：{$vo.kind}</div>
+                                <div class="divone" style="float: right;margin-right: 5%">价格：{$vo.price}</div>
                             </a>
                         </div>
                     </if>
