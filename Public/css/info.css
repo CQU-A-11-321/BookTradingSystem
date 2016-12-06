@@ -10,9 +10,9 @@ body,h4,h5,img
 }
 
 .div-divone
-{
-    height: 20%;
-}
+ {
+     height: 20%;
+ }
 .ipt
 {
     font-size: 20px;
@@ -21,6 +21,15 @@ body,h4,h5,img
     width:200px;
     height: 30px;
     border:0px;
+}
+
+.ipta
+{
+    font-size: 20px;
+    /*float: left;*/
+    margin-left: 10px;
+    width:200px;
+    height: 30px;
 }
 
 .iptcc
@@ -252,7 +261,7 @@ nav ul li ul li a:hover
 #info-form
 {
     margin-left: 15%;
-    margin-top: 10%;
+    margin-top: 5%;
     width:60%;
     height: 70%;
 }
@@ -517,6 +526,7 @@ nav ul li ul li a:hover
 .search1
 {
     margin-left: 20%;
+    padding-left: 10px;
     width: 50%;
     height: 30px;
     -moz-border-radius: 15px;

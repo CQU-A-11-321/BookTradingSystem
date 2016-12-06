@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加书籍页</title>
+    <link rel="stylesheet" type="text/css" href="{:C('APP_ROOT')}/info.css">
+</head>
+<body>
+<div id="header">
+    <div>
+        <div  style="margin-top: 30px;font-size: 80px;" align="center">321 BK House</div>
+    </div>
+    <nav>
+        <ul>
+            <li> <a href="#">导航栏</a>
+                <ul>
+                    <li> <a href="indexPage"> 主页 </a> </li>
+                    <li> <a href="myInfoPage"> 我的资料 </a> </li>
+                    <li> <a href={$link}> 我的书屋 </a> </li>
+                    <li> <a href="orderInfoPage"> 我的订单 </a> </li>
+                    <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div id="info-divone"></div>
+<div id="info-divtwo" style="background-color: #92CC90;">
+    <div id="bkinfo">
+        <form>
+            <ol>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp书名：<input type="text" name="name" class="ipt" value={$data.bookname}></li>
+                <br/>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp作者：<input type="text" name="author" class="ipt" value={$data.shopname}></li>
+                <br/>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp类别：<input type="text" name="kind" class="ipt" value={$data.state}></li>
+                <br/>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp价格：<input type="text" name="money" class="ipt" value={$data.address}></li>
+                <br/>
+                <li class="info-li">出版社：<input type="text" name="concern" class="ipt" value={$data.bookname}></li>
+                <br/>
+                <li class="info-li">详细信息<br/><textarea rows="5" cols="70" name="address" style="text-align: center;font-family: 等线;font-size: 20px;">{$data.address} </textarea></li>
+                <br/>
+                <li class="info-li"><input type="submit" id="ipt2" class = "button_welcome1" value="确认上架" style="margin-left:45%;float: left;background-color:#29CC59; cursor:pointer"></li>
+            </ol>
+        </form>
+
+    </div>
+</div>
+<div id="info-divthree"></div>
+<div id="footer">
+    <div>
+        <br/>
+    </div>
+    Copyright 321BKHouse.co 2016
+</div>
+</body>
+</html>
