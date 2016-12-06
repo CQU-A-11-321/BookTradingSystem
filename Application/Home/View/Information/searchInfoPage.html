@@ -25,7 +25,7 @@
     </nav>
 </div>
 <div id="info-divone"></div>
-<div id="info-divtwo">
+<div id="info-divtwo1">
     <div style="margin-top: 5%">
         <form action="" method="post">
             <input type="text" name="search" class="search1">
@@ -35,11 +35,13 @@
     <div id="booktwo-two" name="bookdisplay" style="margin-top: 5%;text-align: center">
         <volist name="list" id="vo"  empty="没有搜索到对应书籍">
             <a href={$vo.link}>
-                <div class="usdiv" name="tableform" id="tableone" onclick="click()">
-                    <div class="divone">{$vo.name}</div>
-                    <div class="divone" style=" margin-left: 7%;">{$vo.author}</div>
-                    <div class="divone">{$vo.price}</div>
-                    <div class="divone">{$vo.shopname}</div>
+                <div class="bkblock">
+                    <div class="bkpic"><img src="{:C('PCZ_ROOT')}/bkpic.jpg"></div>
+                    <div class="bkname">「{$vo.name}」</div>
+                    <!--<eq name="mod" value="4"><br/></eq>-->
+                    <div class="bkauthor">{$vo.author}</div>
+                    <div class="bkdate">{$vo.date}</div>
+                    <div class="bkprice">￥{$vo.price}</div>
                 </div>
             </a>
         </volist>
