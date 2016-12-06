@@ -17,7 +17,10 @@ use Think\Controller;
  */
 
 class BaseController extends Controller {
-
+    /**
+     * 获得当前的url
+     * @return string
+     */
     function get_url() {
         $sys_protocal = isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443' ? 'https://' : 'http://';
         $php_self = $_SERVER['PHP_SELF'] ? $_SERVER['PHP_SELF'] : $_SERVER['SCRIPT_NAME'];
@@ -26,6 +29,9 @@ class BaseController extends Controller {
         return $sys_protocal.(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '').$relate_url;
     }
 
+    /**
+     * 对于用户信息更改同步各数据库
+     */
     function updateUserInfoToEachTable() {
         $Shop = M('shop');
         $Order = M('order');

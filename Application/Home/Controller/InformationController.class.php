@@ -30,6 +30,7 @@ class InformationController extends BaseController
         $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
         $this->assign('link', $link);
         session('link', $link);
+//        dump($link);
         $this->display("successLogin");
     }
 
@@ -46,6 +47,10 @@ class InformationController extends BaseController
         $this->assign('buy', "/BookTradingSystem/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
 
         $this->assign('link', $link);
+
+        $id = M('shop')->where("uniqueid=%s", $bookshopid)->getField('userid');
+        if ($id == session('user')['uniqueid']) $this->assign('flag', "0");
+        else $this->assign('flag', "1");
 
         $this->display();
     }
@@ -200,9 +205,6 @@ class InformationController extends BaseController
         $this->success("添加购物车成功。");
     }
 
-//    public function buy($bookid = 1, $bookshopid = 1) {
-//        $this->redirect("Trade/tradePage", "bookid=" . $bookid . "&bookshopid=". $bookshopid);
-//    }
 
     public function searchInfoPage() {
         $condition = $_POST['search'];

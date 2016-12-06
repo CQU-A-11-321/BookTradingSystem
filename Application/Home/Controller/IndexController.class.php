@@ -22,6 +22,8 @@ class IndexController extends BaseController{
 
     /**
      * 登录模块
+     * @method post
+     * @return 登陆成功跳转到主页
      */
     public function login() {
         $name = $_POST['log'];
@@ -37,10 +39,7 @@ class IndexController extends BaseController{
             $this->error("登录失败");
         }
         else {
-            // fixme: 登录成功跳转窗口增加内容
-//            $name = $result[0]['name'];
-//            session('username', $name);
-//            session('userid', $result[0]['uniqueid']);
+
             session('user', $result[0]);
             $UserInfo = M('userinfo');
             $info = $UserInfo->where("uniqueid=%s", $result[0]['userinfoid'])->select();
@@ -58,6 +57,8 @@ class IndexController extends BaseController{
 
     /**
      * 注册模块
+     * @method post
+     * @return 注册成功返回登录页面
      */
     public function register() {
         $User = M('user');
