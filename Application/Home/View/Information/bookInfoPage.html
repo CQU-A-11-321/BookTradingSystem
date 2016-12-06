@@ -78,8 +78,13 @@
             <textarea rows="7" cols="100%" style="margin-left: 10%" readonly="1">{$book.mark}</textarea>
         </div>
         <br/>
+        <if condition="$test eq 1">
         <input type="submit" id="ipt1" formaction={$toAdd} class = "button_welcome1" value="加入购物车" style="margin-left:30%;float: left;background-color: #2F5BB7;cursor:pointer">
         <input type="submit" id="ipt2" formaction="{$buy}" class = "button_welcome1" value="点击购买" style="margin-left:2%;float: left;background-color: #95C8F1; cursor:pointer">
+        </if>
+        <else>
+
+        </else>
     </form>
     <div id="info-divthree"></div>
     <div id="footer">

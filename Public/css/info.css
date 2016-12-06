@@ -10,9 +10,9 @@ body,h4,h5,img
 }
 
 .div-divone
-{
-    height: 20%;
-}
+ {
+     height: 20%;
+ }
 .ipt
 {
     font-size: 20px;
@@ -526,6 +526,7 @@ nav ul li ul li a:hover
 .search1
 {
     margin-left: 20%;
+    padding-left: 10px;
     width: 50%;
     height: 30px;
     -moz-border-radius: 15px;
