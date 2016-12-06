@@ -87,6 +87,18 @@ class IndexController extends BaseController{
                 'zipcode' => ''
             );
             $UserInfo->add($info);
+
+            $Shop = M('shop');
+            $nextNum = $Shop->count() + 1;
+            $shopinfo = array(
+                'uniqueid' => $nextNum,
+                'shopname' => '无',
+                'userid' => $_POST['user'],
+                'username' => $_POST['name'],
+                'credit' => '0',
+            );
+            $Shop->add($shopinfo);
+
             $this->success("注册成功", "index");
         }
     }

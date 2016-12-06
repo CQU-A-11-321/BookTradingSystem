@@ -10,6 +10,7 @@ class TradeController extends BaseController
 {
     public function tradePage($bookid = 1, $bookshopid = 1){
 
+        $this->assign('link', session('link'));
         $this->display();
     }
 }

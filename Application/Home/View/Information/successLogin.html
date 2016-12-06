@@ -28,34 +28,45 @@
 </div>
 <div id="info-head">
 </div>
+
 <div id="info-divone"></div>
+
 <div id="info-divtwo1">
-    <div style="height: 253px;width: 100%;background-image: url({:C('PCZ_ROOT')}/cc4.jpg);background-size: 100% 100%;position:relative;">
-        <div id="little">
-            <div style="width: 100%;height: 100%;text-align: center;font-size: 65px;">欢迎来到321 BK House</div>
-        </div>
-    </div>
+    <div style="height: 253px;width: 100%;background-image: url({:C('PCZ_ROOT')}/cc4.jpg);background-size: 100% 100%;position:relative;"></div>
+    <!--搜索框-->
     <div style="margin-top: 5%">
         <form action="" method="post">
             <input type="text" name="search" class="search1">
             <input type="submit" name="searchup" class="search2" value="搜索" formaction="searchInfoPage">
         </form>
     </div>
-    <!--<div class="shudian">-->
-        <!--<a href="bookInfoPage/shopitemId/1">钢铁是怎样炼成的</a>-->
-    <!--</div>-->
-    <div id="booktwo-two" name="bookdisplay" style="margin-top: 5%">
-        <volist name="list" id="vo"  empty="暂时没有书籍推荐">
+
+    <div style="margin: 5% ">
+        <volist name="list" id="vo"  mod="5" empty="暂时没有书籍推荐">
             <a href={$vo.link}>
-                <div class="usdiv" name="tableform" id="tableone" onclick="click()">
-                    <div class="divone">{$vo.name}</div>
-                    <div class="divone" style=" margin-left: 7%;">{$vo.author}</div>
-                    <div class="divone">{$vo.price}</div>
-                </div>
+               <div class="bkblock">
+                   <div class="bkpic"><img src="{:C('PCZ_ROOT')}/bkpic.jpg"></div>
+                   <div class="bkname">「{$vo.name}」</div>
+                   <!--<eq name="mod" value="4"><br/></eq>-->
+                   <div class="bkauthor">{$vo.author}</div>
+                   <div class="bkdate">{$vo.date}</div>
+                   <div class="bkprice">￥{$vo.price}</div>
+
+
+
+                   <!--<div class="usdiv" name="tableform" id="tableone" onclick="click()">-->
+                   <!--<div class="divone">{$vo.name}</div>-->
+                   <!--<div class="divone" style=" margin-left: 7%;">{$vo.author}</div>-->
+                   <!--<div class="divone">{$vo.price}</div>-->
+                   <!--</div>-->
+
+               </div>
             </a>
+
         </volist>
     </div>
 </div>
+
 <div id="floatTab">
     <div style="margin-top: 80%;"></div>
     <h4 style="font-family: 等线;">推荐书店：</h4>
@@ -68,6 +79,7 @@
         <li class="li1"><a class="advice" href="#">cz1996</a></li>
     </ul>
 </div>
+
 <div id="footer">
     <div>
         <br/>

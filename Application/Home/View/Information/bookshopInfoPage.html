@@ -15,10 +15,11 @@
         <ul>
             <li> <a href="">导航栏</a>
                 <ul>
-                    <li> <a href="/BookTradingSystem/Home/Information/indexPage"> 主页 </a> </li>
-                    <li> <a href="/BookTradingSystem/Home/Information/myInfoPage"> 我的资料 </a> </li>
-                    <li> <a href="/BookTradingSystem/Home/Information/orderInfoPage"> 我的订单 </a> </li>
-                    <li> <a href="/BookTradingSystem/Home/Information/contactusInfoPage"> 联系我们 </a> </li>
+                    <li> <a href="indexPage"> 主页 </a> </li>
+                    <li> <a href="myInfoPage"> 我的资料 </a> </li>
+                    {$another}
+                    <li> <a href="orderInfoPage"> 我的订单 </a> </li>
+                    <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
                 </ul>
             </li>
         </ul>
@@ -74,11 +75,8 @@
         </div>
     </div>
     <div>
-        <if condition="$test eq 1">
+        <if condition="$flag eq 1">
             <input type="submit" id="iptt1" class = "info-welcome" value="添加书籍" style="margin-left:40%;cursor:pointer;float: left;margin-top: 2%">
-        </if>
-        <if condition="$test neq 1">
-
         </if>
     </div>
 </div>

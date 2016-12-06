@@ -43,7 +43,10 @@ class InformationController extends BaseController
         $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
         $this->assign('link', $link);
         $this->assign('toAdd', "addToCart?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
-        $this->assign('buy', "buy?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+        $this->assign('buy', "/BookTradingSystem/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+
+        $this->assign('link', $link);
+
         $this->display();
     }
 
@@ -69,6 +72,7 @@ class InformationController extends BaseController
         $Shopitem = M('shopitem');
         $shopitems = $Shopitem->where("shopid=%s", $bookshopid)->select();
 
+//        dump($shopitems);
         $Book = M('book');
 
         $index = 0;
@@ -82,6 +86,15 @@ class InformationController extends BaseController
 //        dump($list);
         $this->assign('test',2);
         $this->assign('list', $list);
+
+        $id = $Bookshop->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
+        $this->assign('flag', "1");
+        if ($id != $bookshopid) {
+            $another = "<li> <a href=" . session('link') . "> 我的书店 </a> </li>";
+            $this->assign('another', $another);
+            $this->assign('flag', "0");
+        }
+
         $this->display();
     }
 
@@ -131,6 +144,7 @@ class InformationController extends BaseController
         );
 //        dump($data);
         $this->assign("data", $data);
+        $this->assing('link', session('link'));
         $this->display();
     }
 
@@ -159,6 +173,7 @@ class InformationController extends BaseController
         session('user', $session1);
         session('userinfo', $session2);
 
+        $this->updateUserInfoToEachTable();
         $this->success("修改成功", "myInfoPage");
     }
 
@@ -185,10 +200,9 @@ class InformationController extends BaseController
         $this->success("添加购物车成功。");
     }
 
-    public function buy($bookid = 1, $bookshopid = 1) {
-        $url = "/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid;
-        $this->redirect($url);
-    }
+//    public function buy($bookid = 1, $bookshopid = 1) {
+//        $this->redirect("Trade/tradePage", "bookid=" . $bookid . "&bookshopid=". $bookshopid);
+//    }
 
     public function searchInfoPage() {
         $condition = $_POST['search'];
@@ -213,6 +227,7 @@ class InformationController extends BaseController
         }
 
         $this->assign('list', $list);
+        $this->assign('link', session('link'));
 
         $this->display();
     }
@@ -229,6 +244,7 @@ class InformationController extends BaseController
         $session1 = $UserInfo->find(session('userinfo')['uniqueid']);
         session('userinfo', $session1);
 
+        $this->assign('link', session('link'));
         $this->success("充值成功！");
     }
 
