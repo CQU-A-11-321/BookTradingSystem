@@ -23,6 +23,15 @@ body,h4,h5,img
     border:0px;
 }
 
+.ipta
+{
+    font-size: 20px;
+    /*float: left;*/
+    margin-left: 10px;
+    width:200px;
+    height: 30px;
+}
+
 .iptcc
 {
     font-size: 26px;
