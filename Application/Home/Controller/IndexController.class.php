@@ -95,7 +95,7 @@ class IndexController extends BaseController{
                 'uniqueid' => $nextNum,
                 'shopname' => '无',
                 'userid' => $_POST['user'],
-                'username' => $_POST['name'],
+                'username' => $_POST['username'],
                 'credit' => '0',
             );
             $Shop->add($shopinfo);

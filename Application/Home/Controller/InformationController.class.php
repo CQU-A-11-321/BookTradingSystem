@@ -10,7 +10,8 @@ class InformationController extends BaseController
     public function indexPage(){
         $Shopitem = M('shopitem');
         $Book = M('book');
-        $shopitems = $Shopitem->select();
+        $map['shopid'] = array('neq', -1);
+        $shopitems = $Shopitem->where($map)->select();
         $index = 0;
         foreach ($shopitems as $item) {
             $book = $Book->find($item['bookid']);
@@ -262,4 +263,38 @@ class InformationController extends BaseController
         $this->success("删除成功");
     }
 
+    public function addBookPage() {
+
+        $this->assign('link', session('link'));
+        $this->display();
+    }
+
+    public function addBookAndShopitem() {
+        $Book = M('book');
+        $Shopitem = M('shopitem');
+        $Shop = M('shop');
+
+        $bookdata = array(
+            'uniqueid' => $Book->count() + 1,
+            'name' => $_POST['name'],
+            'author' => $_POST['author'],
+            'concern' => $_POST['concern'],
+            'price' => $_POST['price'],
+            'kind' => $_POST['kind'],
+            'date' => $_POST['date'],
+            'mark' => $_POST['mark'],
+        );
+        $Book->add($bookdata);
+        $shopitemdata = array(
+            'unqueid' => $Shopitem->count() + 1,
+            'shopid' => M('shop')->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid'),
+            'shopname' => M('shop')->where("userid=%s", session('user')['uniqueid'])->getField('shopname'),
+            'bookname' => $bookdata['name'],
+            'bookid' => $Book->count(),
+            'quantity' => "1",
+        );
+//        dump($shopitemdata);
+        $Shopitem->add($shopitemdata);
+        $this->success("添加成功。");
+    }
 }

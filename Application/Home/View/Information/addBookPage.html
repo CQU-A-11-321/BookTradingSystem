@@ -27,21 +27,23 @@
 <div id="info-divone"></div>
 <div id="info-divtwo" style="background-color: #92CC90;">
     <div id="bkinfo">
-        <form>
+        <form method="post">
             <ol>
-                <li class="info-li">&nbsp&nbsp&nbsp&nbsp书名：<input type="text" name="name" class="ipt" value={$data.bookname}></li>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp书名：<input type="text" name="name" class="ipt" ></li>
                 <br/>
-                <li class="info-li">&nbsp&nbsp&nbsp&nbsp作者：<input type="text" name="author" class="ipt" value={$data.shopname}></li>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp作者：<input type="text" name="author" class="ipt" ></li>
                 <br/>
-                <li class="info-li">&nbsp&nbsp&nbsp&nbsp类别：<input type="text" name="kind" class="ipt" value={$data.state}></li>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp类别：<input type="text" name="kind" class="ipt" ></li>
                 <br/>
-                <li class="info-li">&nbsp&nbsp&nbsp&nbsp价格：<input type="text" name="money" class="ipt" value={$data.address}></li>
+                <li class="info-li">&nbsp&nbsp&nbsp&nbsp价格：<input type="text" name="price" class="ipt" ></li>
                 <br/>
-                <li class="info-li">出版社：<input type="text" name="concern" class="ipt" value={$data.bookname}></li>
+                <li class="info-li">出版年份：<input type="text" name="date" class="ipt" ></li>
                 <br/>
-                <li class="info-li">详细信息<br/><textarea rows="5" cols="70" name="address" style="text-align: center;font-family: 等线;font-size: 20px;">{$data.address} </textarea></li>
+                <li class="info-li">出版社：<input type="text" name="concern" class="ipt"></li>
                 <br/>
-                <li class="info-li"><input type="submit" id="ipt2" class = "button_welcome1" value="确认上架" style="margin-left:45%;float: left;background-color:#29CC59; cursor:pointer"></li>
+                <li class="info-li">详细信息<br/><textarea rows="5" cols="70" name="mark" style="text-align: center;font-family: 等线;font-size: 20px;">{$data.address} </textarea></li>
+                <br/>
+                <li class="info-li"><input type="submit" id="ipt2" class = "button_welcome1" value="确认上架" style="margin-left:45%;float: left;background-color:#29CC59; cursor:pointer" formaction="addBookAndShopitem"></li>
             </ol>
         </form>
 
