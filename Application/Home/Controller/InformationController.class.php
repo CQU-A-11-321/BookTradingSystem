@@ -331,8 +331,8 @@ class InformationController extends BaseController
 
         if($orderinfo['state'] == "0") {
             $orderinfo['state'] = "未付款";
-            $link = "/BookTradingSystem/Home/Trade/tradePage?bookid=" .
-                $orderinfo['bookid'] . "&bookshopid=" . $orderinfo['shopid'];
+            $link = "/BookTradingSystem/Home/Trade/completeOrder?bookid=" .
+                $orderinfo['bookid'] . "&bookshopid=" . $orderinfo['shopid'] . "&orderid=" . $orderid;
             $this->assign('todo', "去付款");
             $this->assign('todolink', $link);
         }

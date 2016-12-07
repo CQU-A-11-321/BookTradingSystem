@@ -24,6 +24,7 @@ class TradeController extends BaseController
         $this->assign('data', $data);
 //        dump($data);
         $id = M('shop')->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
+        dump(session('user')['uniqueid']);
         $link = "/BookTradingSystem/Home/Information/bookshopInfoPage?bookshopid=" . $id;
 
         $confirmLink = "confirmOrder?bookid=" . $bookid . "&bookshopid=" . $bookshopid;
@@ -46,7 +47,8 @@ class TradeController extends BaseController
         }
         else {
             M('userinfo')->where("uniqueid=%s", session('userinfo')['uniqueid'])->setDec('money', $money);
-            session('userinfo', M('userinfo')->where("uniqueid=%s", session('userinfo')['uniqueid'])->select());
+            $infoid = M('user')->where("uniqueid=%s", session('user')['uniqueid'])->getField('userinfoid');
+            session('userinfo', M('userinfo')->where("uniqueid=%s", $infoid)->select()[0]);
 
             $data = array(
                 'uniqueid' => M('order')->count() + 1,
@@ -64,6 +66,42 @@ class TradeController extends BaseController
                 'state' => "1",
             );
             M('order')->add($data);
+            $this->success("购买成功。", "/BookTradingSystem/Home/Information/indexPage");
+        }
+    }
+
+    public function completeOrder($bookid, $bookshopid, $orderid){
+        $data['name'] = session('user')['name'];
+        $data['tel'] = session('userinfo')['tel'];
+        $data['email'] = session('userinfo')['email'];
+        $data['zipcode'] = session('userinfo')['zipcode'];
+        $data['address'] = session('userinfo')['address'];
+        $data['price'] = M('book')->where("uniqueid=%s", $bookid)->getField('price');
+
+        $this->assign('data', $data);
+//        dump($data);
+        $id = M('shop')->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
+        $link = "/BookTradingSystem/Home/Information/bookshopInfoPage?bookshopid=" . $id;
+
+        $confirmLink = "completeOrderConfirm?orderid=" . $orderid;
+
+        $this->assign('confirmLink', $confirmLink);
+        $this->assign('link', $link);
+//        dump($link);
+        $this->display("tradePage");
+    }
+
+    public function completeOrderConfirm($orderid) {
+        $money = M('order')->where("uniqueid=%s", $orderid)->getField('totalmoney');
+        if ((int)session('userinfo')['money'] < (int)$money) {
+            $this->error("余额不足，请充值。");
+        }
+        else {
+            M('userinfo')->where("uniqueid=%s", session('userinfo')['uniqueid'])->setDec('money', $money);
+            $infoid = M('user')->where("uniqueid=%s", session('user')['uniqueid'])->getField('userinfoid');
+            session('userinfo', M('userinfo')->where("uniqueid=%s", $infoid)->select()[0]);
+
+            M('order')->where("uniqueid=%s", $orderid)->setField('state', 1);
             $this->success("购买成功。", "/BookTradingSystem/Home/Information/indexPage");
         }
     }
