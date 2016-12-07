@@ -211,9 +211,9 @@ class InformationController extends BaseController
         $condition = $_POST['search'];
 //        dump($condition);
         $Shopitem = M('shopitem');
-
+        $map['shopid'] = array('neq', "-1");
         if ($condition == null) {
-            $data = $Shopitem->select();
+            $data = $Shopitem->where($map)->select();
         }
         else {
             $map['bookname'] = array('like', '%' . $condition . '%');
