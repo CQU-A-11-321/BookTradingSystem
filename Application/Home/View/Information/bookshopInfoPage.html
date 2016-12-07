@@ -35,8 +35,8 @@
 </div>
 <div id="info-divone"></div>
 <div id="info-divtwo1">
-    <div id="bookone" style="background-image: url({:C('PCZ_ROOT')}/cc4.jpg);background-size: 100% 100%;">
-        <div class="sizediv">
+    <div id="bookone" style="background-image: url({:C('PCZ_ROOT')}/s.jpg);background-size: 100% 100%;">
+        <div class="sizediv" style="text-align: center">
             {$bookshopname}
         </div>
     </div>
@@ -53,7 +53,7 @@
                             <div class="divone" style="float: right;margin-right: 5%">作者：{$vo.author}</div>
                             <br/>
                             <div class="divone" style="float: left;margin-left: 5%">类别：{$vo.kind}</div>
-                            <div class="divone" style="float: right;margin-right: 5%">价格：{$vo.price}</div>
+                            <div class="divone" style="float: right;margin-right: 5%">价格：<div class="price">{$vo.price}</div></div>
                         </a>
                     </div>
                         <div class="usclick">
@@ -68,7 +68,7 @@
                                 <div class="divone" style="float: right;margin-right: 5%">作者：{$vo.author}</div>
                                 <br/>
                                 <div class="divone" style="float: left;margin-left: 5%">类别：{$vo.kind}</div>
-                                <div class="divone" style="float: right;margin-right: 5%">价格：{$vo.price}</div>
+                                <div class="divone" style="float: right;margin-right: 5%">价格：<div class="price">{$vo.price}</div></div>
                             </a>
                         </div>
                     </if>

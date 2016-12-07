@@ -23,6 +23,7 @@ class InformationController extends BaseController
             $list[$index]['bookshopid'] = $item['shopid'];
             $list[$index]['link'] = "bookInfoPage?bookid=" . $book['uniqueid'] . "&bookshopid=" . $item['shopid'];
             $index++;
+            if (index == 4) break;
         }
 //        dump($list);
         $this->assign('list', $list);

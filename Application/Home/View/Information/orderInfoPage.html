@@ -17,6 +17,7 @@
                 <ul>
                     <li> <a href="indexPage"> 主页 </a> </li>
                     <li> <a href={$link}> 我的书店 </a> </li>
+                    <li> <a href="myInfoPage"> 我的资料 </a> </li>
                     <li> <a href="orderInfoPage"> 我的订单 </a> </li>
                     <li> <a href="contactusInfoPage"> 联系我们 </a> </li>
                 </ul>
@@ -31,7 +32,7 @@
         <div style="width: 100%;height: 50px;font-size: 40px;text-align: center">订单数据</div>
         <volist name="list" id="vo"  empty="暂无订单">
             <a href={$vo.link}>
-                <div class="usdiv" name="tableform" id="tableone" onclick="click()">
+                <div class="usdiv" name="tableform" id="tableone" style="float: left;margin-left: 7%" onclick="click()">
                     <div style="width: 100%;height: 30%;"></div>
                     <div class="divone">书店：{$vo.shopname}</div>
                     <div class="divone" style=" margin-left: 3%;">书名：{$vo.bookname}</div>

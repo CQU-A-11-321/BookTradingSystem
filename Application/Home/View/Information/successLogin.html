@@ -32,7 +32,7 @@
 <div id="info-divone"></div>
 
 <div id="info-divtwo1">
-    <div style="height: 253px;width: 100%;background-image: url({:C('PCZ_ROOT')}/cc4.jpg);background-size: 100% 100%;position:relative;"></div>
+    <div style="height: 253px;width: 100%;background-image: url({:C('PCZ_ROOT')}/s.jpg);background-size: 100% 100%;position:relative;"></div>
     <!--搜索框-->
     <div style="margin-top: 5%">
         <form action="" method="post">
@@ -42,7 +42,7 @@
     </div>
 
     <div style="margin: 5% ;">
-        <volist name="list" id="vo" empty="暂时没有书籍推荐">
+        <volist name="list" id="vo" offset="2" length='8' empty="暂时没有书籍推荐">
             <a href={$vo.link}>
                <div class="bkblock">
                    <div class="bkpic"><img src="{:C('PCZ_ROOT')}/bkpic.jpg"></div>

@@ -24,7 +24,7 @@ class TradeController extends BaseController
         $this->assign('data', $data);
 //        dump($data);
         $id = M('shop')->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
-        dump(session('user')['uniqueid']);
+//        dump(session('user')['uniqueid']);
         $link = "/BookTradingSystem/Home/Information/bookshopInfoPage?bookshopid=" . $id;
 
         $confirmLink = "confirmOrder?bookid=" . $bookid . "&bookshopid=" . $bookshopid;
