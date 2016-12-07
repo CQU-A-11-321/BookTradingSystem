@@ -6,6 +6,7 @@ class InformationController extends BaseController
 {
     /**
      * 显示主页和搜索栏
+     * @param
      */
     public function indexPage(){
         $Shopitem = M('shopitem');
@@ -35,6 +36,11 @@ class InformationController extends BaseController
         $this->display("successLogin");
     }
 
+    /**
+     * 搜索页面
+     * @param 图书名称
+     * @return 图书列表
+     */
     public function searchInfoPage() {
         $condition = $_POST['search'];
 //        dump($condition);
@@ -63,6 +69,11 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * 用户信息页面
+     * @param 用户id
+     * @return 用户信息列表
+     */
     public function myInfoPage(){
         $data = array(
             'name' => session('user')['name'],
@@ -77,6 +88,11 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * 修改信息页面
+     * @param 用户id
+     * @return null
+     */
     public function improveInfoPage(){
         $data = array(
             'name' => session('user')['name'],
@@ -92,6 +108,9 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * 提交用户信息并且修改数据库
+     */
     public function submitInfo(){
         $userData = array(
             'name' => $_POST['name']
@@ -121,13 +140,23 @@ class InformationController extends BaseController
         $this->success("修改成功", "myInfoPage");
     }
 
+    /**
+     * 充值页面
+     */
     public function rechargeInfoPage() {
         $this->assign('link', session('link'));
         $this->display();
     }
 
+    /**
+     * 充值修改数据库
+     * @param 金额
+     */
     public function recharge() {
         $money = $_POST['money'];
+        if ((int)$money < 0) {
+            $this->error("输入金额错误，请重新输入！");
+        }
         $UserInfo = M('userinfo');
         $UserInfo->where("uniqueid=%s", session('userinfo')['uniqueid'])->setInc('money', $money);
         $session1 = $UserInfo->find(session('userinfo')['uniqueid']);
@@ -137,6 +166,12 @@ class InformationController extends BaseController
         $this->success("充值成功！");
     }
 
+    /**
+     * 图书信息也或是商品信息
+     * @param $bookid 图书id
+     * @param $bookshopid 书店id
+     * 图书信息列表
+     */
     public function bookInfoPage($bookid, $bookshopid){
         $Book = M('book');
         $book = $Book->find($bookid);
@@ -158,6 +193,11 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * 书店信息
+     * @param $bookshopid 书店id
+     * @return 书店信息列表
+     */
     public function bookshopInfoPage($bookshopid){
         $Bookshop = M('shop');
         $shop = $Bookshop->where("uniqueid=%s", $bookshopid)->getField('shopname');
@@ -192,12 +232,18 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * 添加书店图书商品
+     */
     public function addBookPage() {
 
         $this->assign('link', session('link'));
         $this->display();
     }
 
+    /**
+     * 将添加的商品信息写到数据库
+     */
     public function addBookAndShopitem() {
         $Book = M('book');
         $Shopitem = M('shopitem');
@@ -227,6 +273,11 @@ class InformationController extends BaseController
         $this->success("添加成功。");
     }
 
+    /**
+     * 添加至购物车
+     * @param $bookid 图书id
+     * @param $bookshopid 书店id
+     */
     public function addToCart($bookid, $bookshopid) {
         $Order = M('order');
         $uniqueid = $Order->count();
@@ -250,6 +301,9 @@ class InformationController extends BaseController
         $this->success("添加购物车成功。");
     }
 
+    /**
+     * 订单列表
+     */
     public function orderInfoPage(){
         $Order = M('order');
         $list = $Order->where("userid=%s", session('user')['uniqueid'])->select();
@@ -266,6 +320,10 @@ class InformationController extends BaseController
 
     }
 
+    /**
+     * 订单详情页面
+     * @param $orderid 订单号
+     */
     public function orderInfoDetail($orderid) {
         $Order = M('order');
         $orderinfo = $Order->find($orderid);
@@ -290,6 +348,10 @@ class InformationController extends BaseController
         $this->display();
     }
 
+    /**
+     * 删除书店商品
+     * @param $shopitemid 商品id
+     */
     public function deleteShopitem($shopitemid) {
         $Shopitem = M('shopitem');
         $Shopitem->find($shopitemid);
@@ -302,6 +364,9 @@ class InformationController extends BaseController
         $this->success("删除成功");
     }
 
+    /**
+     * 联系开发人员页面
+     */
     public function contactusInfoPage(){
 
         $this->assign('link', session('link'));

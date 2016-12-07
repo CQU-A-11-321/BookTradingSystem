@@ -8,6 +8,11 @@ namespace Home\Controller;
 use Think\Controller;
 class TradeController extends BaseController
 {
+    /**
+     * 交易付款页面
+     * @param $bookid 图书id
+     * @param $bookshopid 书店id
+     */
     public function tradePage($bookid, $bookshopid){
         $data['name'] = session('user')['name'];
         $data['tel'] = session('userinfo')['tel'];
@@ -29,6 +34,11 @@ class TradeController extends BaseController
         $this->display();
     }
 
+    /**
+     * 确认付款并回写数据库
+     * @param $bookid 图书id
+     * @param $bookshopid 书店id
+     */
     public function confirmOrder($bookid, $bookshopid) {
         $money = $_POST['price'];
         if ((int)session('userinfo')['money'] < (int)$money) {
