@@ -23,7 +23,7 @@ class IndexController extends BaseController{
     /**
      * 登录模块
      * @method post
-     * @return 登陆成功跳转到主页
+     * @return 登陆成功跳转到主页否则提示错误信息
      */
     public function login() {
         $name = $_POST['log'];
@@ -50,6 +50,7 @@ class IndexController extends BaseController{
 
     /**
      * 登陆成功后跳转至主页
+     *
      */
     public function successLogin() {
         $this->redirect("Home/Information/indexPage");

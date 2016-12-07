@@ -30,7 +30,7 @@
     <div id="infodetail">
         <div><p class="info_t" id="bkinfo_t">我的订单</p></div>
         <div id="bkinfo">
-            <form>
+            <form action={$todolink} method="post">
                 <ol>
                     <li class="info-li">订单序号：<input type="text" name="name"  class="ipt" readonly="1" value={$data.uniqueid}></li>
                     <br/>
@@ -47,7 +47,7 @@
                     <br/>
                     <li class="info-li">联系电话：<input type="text" name="name" class="ipt" readonly="1" value={$data.tel}></li>
                     <br/>
-                    <li class="info-li"><input type="submit" id="ipt2" class = "button_welcome1" value="" style="margin-left:35%;float: left;background-color:#29CC59; cursor:pointer"></li>
+                    <li class="info-li"><input type="submit" id="ipt2" class = "button_welcome1" value={$todo} style="margin-left:35%;float: left;background-color:#29CC59; cursor:pointer"></li>
                 </ol>
             </form>
 

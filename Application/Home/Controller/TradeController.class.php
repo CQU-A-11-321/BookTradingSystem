@@ -17,7 +17,7 @@ class TradeController extends BaseController
         $data['price'] = M('book')->where("uniqueid=%s", $bookid)->getField('price');
 
         $this->assign('data', $data);
-        dump($data);
+//        dump($data);
         $id = M('shop')->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
         $link = "/BookTradingSystem/Home/Information/bookshopInfoPage?bookshopid=" . $id;
 

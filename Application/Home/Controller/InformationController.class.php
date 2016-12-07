@@ -5,7 +5,7 @@ use Think\Controller;
 class InformationController extends BaseController
 {
     /**
-     *
+     * 显示主页和搜索栏
      */
     public function indexPage(){
         $Shopitem = M('shopitem');
@@ -35,23 +35,30 @@ class InformationController extends BaseController
         $this->display("successLogin");
     }
 
-    public function bookInfoPage($bookid, $bookshopid){
+    public function searchInfoPage() {
+        $condition = $_POST['search'];
+//        dump($condition);
+        $Shopitem = M('shopitem');
+        $map['shopid'] = array('neq', "-1");
+        if ($condition == null) {
+            $data = $Shopitem->where($map)->select();
+        }
+        else {
+            $map['bookname'] = array('like', '%' . $condition . '%');
+            $data = $Shopitem->where($map)->select();
+        }
+
         $Book = M('book');
-        $book = $Book->find($bookid);
-        $Bookshop = M('shop');
-        $shop = $Bookshop->find($bookshopid);
-        $this->assign('book', $book);
-        $this->assign('shopname', $shop['shopname']);
-        $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
-        $this->assign('link', $link);
-        $this->assign('toAdd', "addToCart?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
-        $this->assign('buy', "/BookTradingSystem/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+        for ($i = 0; $i < sizeof($data); $i++) {
+            $list[$i]['name'] = $data[$i]['bookname'];
+            $list[$i]['aurhor'] = $Book->where("uniqueid=%s", $data[$i]['bookid'])->getField('author');
+            $list[$i]['price'] = $Book->where("uniqueid=%s", $data[$i]['bookid'])->getField('price');
+            $list[$i]['shopname'] = M('shop')->where("uniqueid=%s", $data[$i]['shopid'])->getField('shopname');
+            $list[$i]['link'] = "bookInfoPage?bookid=" . $data[$i]['bookid'] . "&bookshopid=" . $data[$i]['shopid'];
+        }
 
-        $this->assign('link', $link);
-
-        $id = M('shop')->where("uniqueid=%s", $bookshopid)->getField('userid');
-        if ($id == session('user')['uniqueid']) $this->assign('flag', "0");
-        else $this->assign('flag', "1");
+        $this->assign('list', $list);
+        $this->assign('link', session('link'));
 
         $this->display();
     }
@@ -68,75 +75,6 @@ class InformationController extends BaseController
         $this->assign('data', $data);
         $this->assign('link', session('link'));
         $this->display();
-    }
-
-    public function bookshopInfoPage($bookshopid){
-        $Bookshop = M('shop');
-        $shop = $Bookshop->where("uniqueid=%s", $bookshopid)->getField('shopname');
-        $this->assign('bookshopname', $shop);
-
-        $Shopitem = M('shopitem');
-        $shopitems = $Shopitem->where("shopid=%s", $bookshopid)->select();
-//        dump($shopitems);
-//        dump($shopitems);
-        $Book = M('book');
-
-        $index = 0;
-        foreach ($shopitems as $item) {
-            $list[$index]['name'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('name');
-            $list[$index]['author'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('author');
-            $list[$index]['price'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('price');
-            $list[$index]['kind'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('kind');
-            $list[$index]['link'] = "bookInfoPage?bookid=" . $item['bookid'] . "&bookshopid=" . $bookshopid;
-            $list[$index]['deleteLink'] = "deleteShopitem?shopitemid=" . $item['unqueid'];
-            $index++;
-        }
-        $this->assign('list', $list);
-
-        $id = $Bookshop->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
-        $this->assign('flag', "1");
-        if ($id != $bookshopid) {
-            $another = "<li> <a href=" . session('link') . "> 我的书店 </a> </li>";
-            $this->assign('another', $another);
-            $this->assign('flag', "0");
-        }
-
-        $this->display();
-    }
-
-    public function orderInfoPage(){
-        $Order = M('order');
-        $list = $Order->where("userid=%s", session('user')['uniqueid'])->select();
-        for ($i = 0; $i < sizeof($list); $i++) {
-            $list[$i]['link'] = "orderInfoDetail?orderid=" . $list[$i]['uniqueid'];
-        }
-//        dump($list);
-
-        $this->assign('list', $list);
-        $this->assign('link', session('link'));
-        $this->display();
-
-    }
-
-    public function orderInfoDetail($orderid) {
-        $Order = M('order');
-        $orderinfo = $Order->find($orderid);
-//        dump($orderinfo);
-
-        if($orderinfo['state'] == "0") $orderinfo['state'] = "未付款";
-        else $orderinfo['state'] = "已付款";
-
-        $this->assign('data', $orderinfo);
-
-        $this->assign('link', session('link'));
-        $this->display();
-    }
-
-    public function contactusInfoPage(){
-
-        $this->assign('link', session('link'));
-        $this->display();
-
     }
 
     public function improveInfoPage(){
@@ -183,58 +121,6 @@ class InformationController extends BaseController
         $this->success("修改成功", "myInfoPage");
     }
 
-    public function addToCart($bookid, $bookshopid) {
-        $Order = M('order');
-        $uniqueid = $Order->count();
-        $uniqueid++;
-        $data = array(
-            'uniqueid' => $uniqueid,
-            'userid' => session('user')['uniqueid'],
-            'username' => session('user')['name'],
-            'shopid' => $bookshopid,
-            'shopname' => M('shop')->where("uniqueid=%s", $bookshopid)->getField('shopname'),
-            'bookid' => $bookid,
-            'bookname' => M('book')->where("uniqueid=%s", $bookid)->getField('name'),
-            'totalmoney' => M('book')->where("uniqueid=%s", $bookid)->getField('price'),
-            'address' => session('userinfo')['address'],
-            'tel' => session('userinfo')['tel'],
-            'email' => session('userinfo')['email'],
-            'createdate' => date("Y-m-d H:i:s"),
-            'state' => "0",
-        );
-        $Order->add($data);
-        $this->success("添加购物车成功。");
-    }
-
-
-    public function searchInfoPage() {
-        $condition = $_POST['search'];
-//        dump($condition);
-        $Shopitem = M('shopitem');
-        $map['shopid'] = array('neq', "-1");
-        if ($condition == null) {
-            $data = $Shopitem->where($map)->select();
-        }
-        else {
-            $map['bookname'] = array('like', '%' . $condition . '%');
-            $data = $Shopitem->where($map)->select();
-        }
-
-        $Book = M('book');
-        for ($i = 0; $i < sizeof($data); $i++) {
-            $list[$i]['name'] = $data[$i]['bookname'];
-            $list[$i]['aurhor'] = $Book->where("uniqueid=%s", $data[$i]['bookid'])->getField('author');
-            $list[$i]['price'] = $Book->where("uniqueid=%s", $data[$i]['bookid'])->getField('price');
-            $list[$i]['shopname'] = M('shop')->where("uniqueid=%s", $data[$i]['shopid'])->getField('shopname');
-            $list[$i]['link'] = "bookInfoPage?bookid=" . $data[$i]['bookid'] . "&bookshopid=" . $data[$i]['shopid'];
-        }
-
-        $this->assign('list', $list);
-        $this->assign('link', session('link'));
-
-        $this->display();
-    }
-
     public function rechargeInfoPage() {
         $this->assign('link', session('link'));
         $this->display();
@@ -251,16 +137,59 @@ class InformationController extends BaseController
         $this->success("充值成功！");
     }
 
-    public function deleteShopitem($shopitemid) {
+    public function bookInfoPage($bookid, $bookshopid){
+        $Book = M('book');
+        $book = $Book->find($bookid);
+        $Bookshop = M('shop');
+        $shop = $Bookshop->find($bookshopid);
+        $this->assign('book', $book);
+        $this->assign('shopname', $shop['shopname']);
+        $link = "bookshopInfoPage?bookshopid=" . $bookshopid;
+        $this->assign('link', $link);
+        $this->assign('toAdd', "addToCart?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+        $this->assign('buy', "/BookTradingSystem/Home/Trade/tradePage?bookid=" . $bookid . "&bookshopid=" . $bookshopid);
+
+        $this->assign('link', $link);
+
+        $id = M('shop')->where("uniqueid=%s", $bookshopid)->getField('userid');
+        if ($id == session('user')['uniqueid']) $this->assign('flag', "0");
+        else $this->assign('flag', "1");
+
+        $this->display();
+    }
+
+    public function bookshopInfoPage($bookshopid){
+        $Bookshop = M('shop');
+        $shop = $Bookshop->where("uniqueid=%s", $bookshopid)->getField('shopname');
+        $this->assign('bookshopname', $shop);
+
         $Shopitem = M('shopitem');
-        $Shopitem->find($shopitemid);
-        $Shopitem->shopid = "-1";
-        $Shopitem->shopname = "-1";
-        $Shopitem->bookname = "-1";
-        $Shopitem->bookid = "-1";
-        $Shopitem->quantity = "-1";
-        $Shopitem->save();
-        $this->success("删除成功");
+        $shopitems = $Shopitem->where("shopid=%s", $bookshopid)->select();
+//        dump($shopitems);
+//        dump($shopitems);
+        $Book = M('book');
+
+        $index = 0;
+        foreach ($shopitems as $item) {
+            $list[$index]['name'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('name');
+            $list[$index]['author'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('author');
+            $list[$index]['price'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('price');
+            $list[$index]['kind'] = $Book->where("uniqueid=%s", $item['bookid'])->getField('kind');
+            $list[$index]['link'] = "bookInfoPage?bookid=" . $item['bookid'] . "&bookshopid=" . $bookshopid;
+            $list[$index]['deleteLink'] = "deleteShopitem?shopitemid=" . $item['unqueid'];
+            $index++;
+        }
+        $this->assign('list', $list);
+
+        $id = $Bookshop->where("userid=%s", session('user')['uniqueid'])->getField('uniqueid');
+        $this->assign('flag', "1");
+        if ($id != $bookshopid) {
+            $another = "<li> <a href=" . session('link') . "> 我的书店 </a> </li>";
+            $this->assign('another', $another);
+            $this->assign('flag', "0");
+        }
+
+        $this->display();
     }
 
     public function addBookPage() {
@@ -297,4 +226,87 @@ class InformationController extends BaseController
         $Shopitem->add($shopitemdata);
         $this->success("添加成功。");
     }
+
+    public function addToCart($bookid, $bookshopid) {
+        $Order = M('order');
+        $uniqueid = $Order->count();
+        $uniqueid++;
+        $data = array(
+            'uniqueid' => $uniqueid,
+            'userid' => session('user')['uniqueid'],
+            'username' => session('user')['name'],
+            'shopid' => $bookshopid,
+            'shopname' => M('shop')->where("uniqueid=%s", $bookshopid)->getField('shopname'),
+            'bookid' => $bookid,
+            'bookname' => M('book')->where("uniqueid=%s", $bookid)->getField('name'),
+            'totalmoney' => M('book')->where("uniqueid=%s", $bookid)->getField('price'),
+            'address' => session('userinfo')['address'],
+            'tel' => session('userinfo')['tel'],
+            'email' => session('userinfo')['email'],
+            'createdate' => date("Y-m-d H:i:s"),
+            'state' => "0",
+        );
+        $Order->add($data);
+        $this->success("添加购物车成功。");
+    }
+
+    public function orderInfoPage(){
+        $Order = M('order');
+        $list = $Order->where("userid=%s", session('user')['uniqueid'])->select();
+        for ($i = 0; $i < sizeof($list); $i++) {
+            $list[$i]['link'] = "orderInfoDetail?orderid=" . $list[$i]['uniqueid'];
+            if ($list[$i]['state'] == "1") $list[$i]['state'] = "已付款";
+            else $list[$i]['state'] = "未付款";
+        }
+//        dump($list);
+
+        $this->assign('list', $list);
+        $this->assign('link', session('link'));
+        $this->display();
+
+    }
+
+    public function orderInfoDetail($orderid) {
+        $Order = M('order');
+        $orderinfo = $Order->find($orderid);
+//        dump($orderinfo);
+
+        if($orderinfo['state'] == "0") {
+            $orderinfo['state'] = "未付款";
+            $link = "/BookTradingSystem/Home/Trade/tradePage?bookid=" .
+                $orderinfo['bookid'] . "&bookshopid=" . $orderinfo['shopid'];
+            $this->assign('todo', "去付款");
+            $this->assign('todolink', $link);
+        }
+        else {
+            $orderinfo['state'] = "已付款";
+            $this->assign('todo', "返回");
+            $this->assign('todolink', "orderInfoPage");
+        }
+
+        $this->assign('data', $orderinfo);
+
+        $this->assign('link', session('link'));
+        $this->display();
+    }
+
+    public function deleteShopitem($shopitemid) {
+        $Shopitem = M('shopitem');
+        $Shopitem->find($shopitemid);
+        $Shopitem->shopid = "-1";
+        $Shopitem->shopname = "-1";
+        $Shopitem->bookname = "-1";
+        $Shopitem->bookid = "-1";
+        $Shopitem->quantity = "-1";
+        $Shopitem->save();
+        $this->success("删除成功");
+    }
+
+    public function contactusInfoPage(){
+
+        $this->assign('link', session('link'));
+        $this->display();
+
+    }
+
 }
