@@ -379,8 +379,8 @@ nav ul li ul li a:hover
 #usone
 {
     width: 80%;
-    height: 58%;
-    margin-left: 10%;
+    height: 60%;
+    margin-left: 16%;
     margin-top: 4%;
     background-color:#92CC90;
 }
@@ -542,6 +542,12 @@ nav ul li ul li a:hover
     width: 80px;
     height: 35px;
     cursor: pointer;
+    font-size:20px;
+    font-family: 等线,Arial;
+    border-radius:3px;
+    text-decoration:none;
+    background:#00a65a;
+    color:#f2f2f2;
 }
 
 
@@ -630,6 +636,7 @@ nav ul li ul li a:hover
     width:50%;
     float:left;
     position:relative;
+    margin-bottom:3%;
 }
 
 .bkpic
@@ -647,30 +654,31 @@ nav ul li ul li a:hover
     margin-top: 6%;
     font-family: 华文细黑;
     font-size: 28px;
+    font-weight: bolder;
     color: #1f1f1f;
 }
 
 .bkprice
 {
     width:40%;
-    height:100%;
+    height:20%;
     margin-left: 58%;
     font-family: Broadway;
     font-size: 46px;
     color: #CC4B22;
     position:absolute;
-    right:0px;
-    bottom:-280px;
+    left:0px;
+    top:280px;
 }
 
 .bkauthor
 {
     width:40%;
-    margin-left: 58%;
-    margin-top: 6%;
-    font-family: 新宋体;
-    font-size: 12px;
+    margin-left: 57%;
+    position:absolute;
+    bottom: 150px;
+    font-family: 微软雅黑;
+    font-size: 24px;
     color: #1f1f1f;
-    margin-bottom: 7%;
-
+    text-align: center;
 }
